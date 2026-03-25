@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surfaces */
+  --color-background:              #f8fafc;
+  --color-foreground:              #0f172a;
+  --color-card:                    #ffffff;
+  --color-card-foreground:         #0f172a;
+  --color-muted:                   #f1f5f9;
+  --color-muted-foreground:        #64748b;
+  --color-border:                  #e2e8f0;
+  --color-input:                   #e2e8f0;
+
+  /* Interactive */
+  --color-primary:                 #0f172a;
+  --color-primary-foreground:      #f8fafc;
+  --color-secondary:               #f1f5f9;
+  --color-secondary-foreground:    #0f172a;
+  --color-accent:                  #6366f1;
+  --color-accent-foreground:       #ffffff;
+  --color-destructive:             #ef4444;
+  --color-destructive-foreground:  #ffffff;
+  --color-ring:                    #6366f1;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+  }
+
+  /* Numeric data uses monospace */
+  .tabular-nums {
+    font-family: ui-monospace, 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+}

@@ -1,0 +1,78 @@
+"""
+Central configuration for crypto signal engine.
+All tunable parameters live here. Override via environment variables where noted.
+"""
+
+import os
+
+# ─── Pairs ───
+PAIRS = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "TAOUSDT"]
+TIMEFRAMES = ["1h", "4h"]
+
+# ─── Scheduling ───
+FAST_PULSE_INTERVAL_SECONDS = 60
+FULL_ANALYSIS_INTERVAL_SECONDS = 300
+HOURLY_TASK_INTERVAL_SECONDS = 3600
+HTF_REGIME_INTERVAL_SECONDS = 14400
+
+# ─── Signal Thresholds ───
+CONFIDENCE_THRESHOLD_TRADE = 70
+VOLUME_ZSCORE_LOOKBACK = 20
+OI_CHANGE_NOISE_FLOOR = 0.005
+OI_CHANGE_NOTABLE = 0.015
+OI_CHANGE_LOOKBACK = 4
+FUNDING_RATE_EXTREME_POSITIVE = 0.0003
+FUNDING_RATE_EXTREME_NEGATIVE = -0.0003
+ATR_ZSCORE_LOOKBACK = 20
+VWAP_DEVIATION_THRESHOLD = 2.0
+
+# ─── FVG / OB Settings ───
+FVG_MIN_GAP_PERCENT = 0.001
+OB_IMPULSE_MIN_CANDLES = 3
+OB_IMPULSE_MIN_RANGE_ATR = 2.0
+
+# ─── Structure Settings ───
+SWING_LOOKBACK = 5
+EQUAL_LEVEL_TOLERANCE = 0.001
+
+# ─── Session Times (UTC) ───
+ASIAN_SESSION = ("00:00", "08:00")
+LONDON_SESSION = ("08:00", "16:00")
+NEW_YORK_SESSION = ("13:00", "21:00")
+
+# ─── Backtest Settings ───
+BACKTEST_MONTHS = 12
+SLIPPAGE_PERCENT = 0.0005
+TAKER_FEE_PERCENT = 0.0004
+RISK_PER_TRADE_PERCENT = 0.01
+MAX_CONCURRENT_POSITIONS = 2
+MAX_HOLD_HOURS = 48
+MONTE_CARLO_ITERATIONS = 1000
+INITIAL_CAPITAL = 10000
+
+# ─── Telegram ───
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+
+# ─── API ───
+BINANCE_FUTURES_BASE = "https://fapi.binance.com"
+COINGLASS_API_KEY = os.getenv("COINGLASS_API_KEY", "")
+COINGLASS_BASE = "https://open-api.coinglass.com"
+
+# ─── Retry Settings ───
+MAX_RETRIES = 3
+RETRY_BACKOFF_BASE = 2
+STALE_DATA_THRESHOLD_SECONDS = 900
+
+# ─── Live Mode Data Window ───
+LIVE_BACKFILL_DAYS = 7
+
+# ─── Demo Trading ───
+DEFAULT_LEVERAGE = 10.0
+MAINTENANCE_MARGIN_RATE = 0.005   # 0.5% Binance-style maintenance margin
+
+# ─── Staleness Thresholds (seconds) ───
+STALE_WARNING_CYCLES = 2          # amber after 2 missed full_analysis cycles (600s)
+STALE_CRITICAL_CYCLES = 4         # red after 4 missed cycles (1200s)
+STALE_FUNDING_WARNING_HOURS = 8
+STALE_FUNDING_CRITICAL_HOURS = 24
