@@ -60,8 +60,8 @@ export function SignalHistoryChart({ data }: Props) {
         <Tooltip
           contentStyle={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 6 }}
           labelStyle={{ color: '#64748b', fontSize: 11 }}
-          formatter={(value: number, _: string, props: { payload?: { risk_color?: string } }) => [
-            `${value} (${props?.payload?.risk_color ?? ''})`,
+          formatter={(value, _name, props) => [
+            `${value as number} (${(props as { payload?: { risk_color?: string } })?.payload?.risk_color ?? ''})`,
             'Confidence',
           ]}
           labelFormatter={ts => tsToDate(ts as number)}

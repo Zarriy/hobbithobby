@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Badge } from '@/components/ui/Badge'
-import { formatPrice, formatDuration, exitReasonBadgeClass, cn, tsToDate } from '@/lib/utils'
+import { formatPrice, formatDuration, exitReasonBadgeClass, cn } from '@/lib/utils'
 import type { DemoTrade } from '@/types/api'
 
 const EXIT_LABELS: Record<string, string> = {

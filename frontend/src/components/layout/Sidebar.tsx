@@ -1,5 +1,5 @@
 import { useSignals } from '@/hooks/useApi'
-import { cn, riskColorDot, formatPrice } from '@/lib/utils'
+import { cn, riskColorDot } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
 
 const PAIRS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'TAOUSDT']

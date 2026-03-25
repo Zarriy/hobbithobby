@@ -49,7 +49,7 @@ export function ConfidenceHistogram({ data }: Props) {
           <Tooltip
             contentStyle={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 6 }}
             labelStyle={{ color: '#64748b', fontSize: 11 }}
-            formatter={(value: number) => [`${value} signals`, 'Count']}
+            formatter={(value) => [`${value as number} signals`, 'Count']}
           />
           <Bar dataKey="count" radius={[2, 2, 0, 0]}>
             {chartData.map((entry) => (

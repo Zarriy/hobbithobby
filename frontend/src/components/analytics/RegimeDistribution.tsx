@@ -77,10 +77,10 @@ export function RegimeDistributionChart({ data }: Props) {
           <Tooltip
             contentStyle={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 6 }}
             labelStyle={{ color: '#64748b', fontSize: 11 }}
-            formatter={(value: number, name: string) => [
-              `${value} (${((value / data.total_signals) * 100).toFixed(1)}%)`,
-              name,
-            ]}
+            formatter={(value, name) => {
+              const n = value as number
+              return [`${n} (${((n / data.total_signals) * 100).toFixed(1)}%)`, name as string]
+            }}
           />
           <Legend
             iconType="circle"

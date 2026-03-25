@@ -1,8 +1,10 @@
 import { StatCard } from '@/components/ui/Card'
-import { formatPct, formatUsd } from '@/lib/utils'
+import { formatPct } from '@/lib/utils'
 import type { DemoMetrics } from '@/types/api'
 
-export function PerformanceStats({ metrics }: { metrics: DemoMetrics }) {
+type MetricsInput = Partial<DemoMetrics> & { status: DemoMetrics['status'] }
+
+export function PerformanceStats({ metrics }: { metrics: MetricsInput }) {
   if (metrics.status !== 'ok') {
     return (
       <div className="grid grid-cols-2 gap-2">
@@ -53,7 +55,7 @@ export function PerformanceStats({ metrics }: { metrics: DemoMetrics }) {
       <StatCard
         label="Profit Factor"
         value={
-          (metrics.profit_factor === Infinity || metrics.profit_factor > 99)
+          (metrics.profit_factor === Infinity || (metrics.profit_factor ?? 0) > 99)
             ? '∞'
             : (metrics.profit_factor ?? 0).toFixed(2)
         }

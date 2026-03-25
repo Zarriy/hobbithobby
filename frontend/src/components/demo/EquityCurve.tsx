@@ -42,8 +42,8 @@ export function EquityCurve({ data, initialCapital = 10000 }: Props) {
         <Tooltip
           contentStyle={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 8 }}
           labelStyle={{ color: '#64748b', fontSize: 11 }}
-          formatter={(value: number, name: string) => [
-            `$${value.toFixed(2)}`,
+          formatter={(value, name) => [
+            `$${(value as number).toFixed(2)}`,
             name === 'equity' ? 'Realized' : 'Total (incl. open P&L)',
           ]}
           labelFormatter={ts => tsToDate(ts as number)}
