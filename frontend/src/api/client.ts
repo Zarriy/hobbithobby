@@ -3,6 +3,7 @@ import type {
   DemoTradesResponse, DemoMetrics, DemoEquityResponse,
   SignalHistoryResponse, DataQualityResponse, RegimeDistribution,
   ConfidenceDistribution, ReasoningResponse, PriceHistoryResponse,
+  DemoComparisonResponse,
 } from '@/types/api'
 
 const BASE = import.meta.env.VITE_API_URL ?? ''  // set VITE_API_URL in prod (e.g. https://api.hobbithobby.quest)
@@ -29,17 +30,20 @@ export const api = {
     get<StatusDetailResponse>('/api/status/detail'),
 
   // ── Demo Trading ──────────────────────────────────────────────────────────
-  getDemoPositions: () =>
-    get<DemoPositionsResponse>('/api/demo/positions'),
+  getDemoPositions: (mode = 'aggressive') =>
+    get<DemoPositionsResponse>(`/api/demo/positions?mode=${mode}`),
 
-  getDemoTrades: (limit = 50) =>
-    get<DemoTradesResponse>(`/api/demo/trades?limit=${limit}`),
+  getDemoTrades: (limit = 50, mode = 'aggressive') =>
+    get<DemoTradesResponse>(`/api/demo/trades?limit=${limit}&mode=${mode}`),
 
-  getDemoMetrics: () =>
-    get<DemoMetrics>('/api/demo/metrics'),
+  getDemoMetrics: (mode = 'aggressive') =>
+    get<DemoMetrics>(`/api/demo/metrics?mode=${mode}`),
 
-  getDemoEquity: (limit = 500) =>
-    get<DemoEquityResponse>(`/api/demo/equity?limit=${limit}`),
+  getDemoEquity: (limit = 500, mode = 'aggressive') =>
+    get<DemoEquityResponse>(`/api/demo/equity?limit=${limit}&mode=${mode}`),
+
+  getDemoComparison: () =>
+    get<DemoComparisonResponse>('/api/demo/comparison'),
 
   // ── Analytics ─────────────────────────────────────────────────────────────
   getDataQuality: () =>

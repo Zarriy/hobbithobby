@@ -37,16 +37,16 @@ def _dict_to_trade_record(d: dict) -> TradeRecord:
     )
 
 
-def compute_demo_metrics(current_equity: float) -> Optional[dict]:
+def compute_demo_metrics(current_equity: float, mode: str = "aggressive") -> Optional[dict]:
     """
     Load all closed demo trades + equity curve from DB and return metrics dict.
     Returns None if no trades yet.
     """
-    trades_raw = demo_store.fetch_all_closed_trades()
+    trades_raw = demo_store.fetch_all_closed_trades(mode=mode)
     if not trades_raw:
         return None
 
-    equity_rows = demo_store.fetch_equity_curve(limit=10000)
+    equity_rows = demo_store.fetch_equity_curve(limit=10000, mode=mode)
     equity_curve = [(r["timestamp"], r["equity"]) for r in equity_rows]
 
     # Build drawdown curve from equity curve

@@ -31,7 +31,7 @@ export function IndicatorsPanel({ signal }: { signal: Signal }) {
         label="OI Change"
         value={noOI ? 'N/A' : `${oiPct >= 0 ? '+' : ''}${oiPct.toFixed(2)}%`}
         alert={noOI}
-        sub={noOI ? 'vol fallback' : undefined}
+        sub={noOI ? 'vol fallback' : 'CoinGlass OI ✓'}
       />
       <Indicator
         label="Funding"

@@ -34,6 +34,7 @@ class DemoTrader:
         leverage: float = config.DEFAULT_LEVERAGE,
         slippage: float = config.SLIPPAGE_PERCENT,
         fees: float = config.TAKER_FEE_PERCENT,
+        mode: str = "aggressive",
     ):
         self._initial_capital = initial_capital
         self._equity: float = initial_capital
@@ -41,13 +42,20 @@ class DemoTrader:
         self._leverage = leverage
         self._slippage = slippage
         self._fees = fees
-        self._rules = TradeRule()
+        self._mode = mode
+        # aggressive = trades on yellow+green (regime_is_green=False)
+        # conservative = trades only on green (regime_is_green=True)
+        self._rules = TradeRule(regime_is_green=(mode == "conservative"))
         self._lock = asyncio.Lock()
+
+    @property
+    def mode(self) -> str:
+        return self._mode
 
     def load_state(self) -> None:
         """Restore open positions and equity from DB on startup / restart."""
-        self._open_positions = demo_store.fetch_open_positions()
-        self._equity = demo_store.get_current_equity()
+        self._open_positions = demo_store.fetch_open_positions(mode=self._mode)
+        self._equity = demo_store.get_current_equity(mode=self._mode)
         logger.info(
             "Demo trader loaded: equity=$%.2f, open_positions=%d",
             self._equity,
@@ -189,6 +197,7 @@ class DemoTrader:
             "confidence_at_entry": confidence,
             "tp1_hit": 0,
             "partial_exit_pnl": 0.0,
+            "mode": self._mode,
         }
 
         row_id = demo_store.insert_position(pos)
@@ -251,7 +260,6 @@ class DemoTrader:
 
         self._equity += net_pnl
 
-        margin_usd = pos.get("margin_usd", pos["size_usd"] / self._leverage)
         pnl_leveraged_pct = pnl_pct_raw * self._leverage
 
         trade = {
@@ -270,12 +278,13 @@ class DemoTrader:
             "net_pnl_usd": net_pnl,
             "size_usd": pos["size_usd"],
             "leverage": pos.get("leverage", self._leverage),
-            "margin_usd": margin_usd,
+            "margin_usd": pos.get("margin_usd", pos["size_usd"] / self._leverage),
             "pnl_leveraged_pct": pnl_leveraged_pct,
             "regime_at_entry": pos["regime_at_entry"],
             "confidence_at_entry": pos.get("confidence_at_entry", 0),
             "entry_zone_type": pos.get("entry_zone_type"),
             "hold_hours": hold_hours,
+            "mode": self._mode,
         }
         demo_store.insert_trade(trade)
         demo_store.close_position(pos["id"], timestamp_ms)
@@ -299,6 +308,7 @@ class DemoTrader:
             equity=self._equity,
             open_pnl=open_pnl,
             open_count=len(self._open_positions),
+            mode=self._mode,
         )
 
     def get_positions_with_mtm(self, live_state: dict) -> list[dict]:

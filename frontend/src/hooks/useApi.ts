@@ -61,37 +61,46 @@ export function useSignalReasoning(pair: string, timeframe = '1h') {
 
 // ── Demo Trading ────────────────────────────────────────────────────────────
 
-export function useDemoPositions() {
+export function useDemoPositions(mode = 'aggressive') {
   return useQuery({
-    queryKey: ['demo-positions'],
-    queryFn: api.getDemoPositions,
+    queryKey: ['demo-positions', mode],
+    queryFn: () => api.getDemoPositions(mode),
     refetchInterval: 30_000,
     staleTime: 25_000,
   })
 }
 
-export function useDemoTrades(limit = 50) {
+export function useDemoTrades(limit = 50, mode = 'aggressive') {
   return useQuery({
-    queryKey: ['demo-trades', limit],
-    queryFn: () => api.getDemoTrades(limit),
+    queryKey: ['demo-trades', limit, mode],
+    queryFn: () => api.getDemoTrades(limit, mode),
     refetchInterval: 60_000,
     staleTime: 55_000,
   })
 }
 
-export function useDemoMetrics() {
+export function useDemoMetrics(mode = 'aggressive') {
   return useQuery({
-    queryKey: ['demo-metrics'],
-    queryFn: api.getDemoMetrics,
+    queryKey: ['demo-metrics', mode],
+    queryFn: () => api.getDemoMetrics(mode),
     refetchInterval: 60_000,
     staleTime: 55_000,
   })
 }
 
-export function useDemoEquity(limit = 500) {
+export function useDemoEquity(limit = 500, mode = 'aggressive') {
   return useQuery({
-    queryKey: ['demo-equity', limit],
-    queryFn: () => api.getDemoEquity(limit),
+    queryKey: ['demo-equity', limit, mode],
+    queryFn: () => api.getDemoEquity(limit, mode),
+    refetchInterval: 60_000,
+    staleTime: 55_000,
+  })
+}
+
+export function useDemoComparison() {
+  return useQuery({
+    queryKey: ['demo-comparison'],
+    queryFn: api.getDemoComparison,
     refetchInterval: 60_000,
     staleTime: 55_000,
   })

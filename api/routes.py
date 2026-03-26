@@ -19,7 +19,7 @@ router = APIRouter()
 # In-memory references set by main.py
 _live_state: dict = {}
 _scheduler_status: dict = {}
-_demo_trader: Optional["DemoTrader"] = None
+_demo_traders: dict[str, "DemoTrader"] = {}
 
 
 def set_live_state(state: dict) -> None:
@@ -32,9 +32,13 @@ def set_scheduler_status(status: dict) -> None:
     _scheduler_status = status
 
 
-def set_demo_trader(trader: "DemoTrader") -> None:
-    global _demo_trader
-    _demo_trader = trader
+def set_demo_traders(aggressive: "DemoTrader", conservative: "DemoTrader") -> None:
+    global _demo_traders
+    _demo_traders = {"aggressive": aggressive, "conservative": conservative}
+
+
+def _get_trader(mode: str) -> Optional["DemoTrader"]:
+    return _demo_traders.get(mode)
 
 
 @router.get("/api/status")
@@ -214,43 +218,68 @@ async def get_status_detail():
 # ════════════════════════════════════════
 
 @router.get("/api/demo/positions")
-async def get_demo_positions():
+async def get_demo_positions(mode: str = Query("aggressive")):
     """Open paper positions with leveraged mark-to-market P&L and portfolio summary."""
-    if _demo_trader is None:
+    trader = _get_trader(mode)
+    if trader is None:
         return {"positions": [], "count": 0, "portfolio_summary": {}}
-    positions = _demo_trader.get_positions_with_mtm(_live_state)
-    summary = _demo_trader.get_portfolio_summary(_live_state)
+    positions = trader.get_positions_with_mtm(_live_state)
+    summary = trader.get_portfolio_summary(_live_state)
     return {"positions": positions, "count": len(positions), "portfolio_summary": summary}
 
 
 @router.get("/api/demo/trades")
-async def get_demo_trades(limit: int = Query(50, ge=1, le=500)):
+async def get_demo_trades(limit: int = Query(50, ge=1, le=500), mode: str = Query("aggressive")):
     """Closed paper trade history."""
     from demo import store as demo_store
-    trades = demo_store.fetch_closed_trades(limit)
+    trades = demo_store.fetch_closed_trades(limit, mode=mode)
     return {"trades": trades, "count": len(trades)}
 
 
 @router.get("/api/demo/metrics")
-async def get_demo_metrics():
+async def get_demo_metrics(mode: str = Query("aggressive")):
     """Aggregated performance: win rate, return%, Sharpe, max DD, profit factor."""
-    if _demo_trader is None:
+    trader = _get_trader(mode)
+    if trader is None:
         return {"status": "not_initialized", "initial_capital": config.INITIAL_CAPITAL}
     from demo.metrics import compute_demo_metrics
-    result = compute_demo_metrics(current_equity=_demo_trader.equity)
+    result = compute_demo_metrics(current_equity=trader.equity, mode=mode)
     if result is None:
         return {"status": "no_trades", "initial_capital": config.INITIAL_CAPITAL,
-                "current_equity": _demo_trader.equity}
+                "current_equity": trader.equity}
     result["status"] = "ok"
     return result
 
 
 @router.get("/api/demo/equity")
-async def get_demo_equity(limit: int = Query(500, ge=1, le=5000)):
+async def get_demo_equity(limit: int = Query(500, ge=1, le=5000), mode: str = Query("aggressive")):
     """Equity curve time series."""
     from demo import store as demo_store
-    rows = demo_store.fetch_equity_curve(limit)
+    rows = demo_store.fetch_equity_curve(limit, mode=mode)
     return {"equity_curve": rows, "count": len(rows)}
+
+
+@router.get("/api/demo/comparison")
+async def get_demo_comparison():
+    """Side-by-side metrics for both demo modes."""
+    from demo.metrics import compute_demo_metrics
+    result = {}
+    for mode in ("aggressive", "conservative"):
+        trader = _get_trader(mode)
+        if trader is None:
+            result[mode] = {"status": "not_initialized", "initial_capital": config.INITIAL_CAPITAL}
+            continue
+        metrics = compute_demo_metrics(current_equity=trader.equity, mode=mode)
+        if metrics is None:
+            result[mode] = {
+                "status": "no_trades",
+                "initial_capital": config.INITIAL_CAPITAL,
+                "current_equity": trader.equity,
+            }
+        else:
+            metrics["status"] = "ok"
+            result[mode] = metrics
+    return {"comparison": result}
 
 
 # ════════════════════════════════════════
@@ -461,11 +490,12 @@ async def get_price_history(
         for c in candles_raw
     ]
 
-    # Trade markers from demo trades within the candle time range
+    # Trade markers from demo trades within the candle time range (aggressive mode)
     trade_markers = []
-    if _demo_trader is not None:
+    trader = _get_trader("aggressive")
+    if trader is not None:
         from demo import store as demo_store
-        trades = demo_store.fetch_closed_trades(limit=200)
+        trades = demo_store.fetch_closed_trades(limit=200, mode="aggressive")
         min_ts = candles_raw[0]["timestamp"]
         max_ts = candles_raw[-1]["timestamp"]
         for t in trades:
@@ -489,7 +519,7 @@ async def get_price_history(
                     "pnl_usd": t["net_pnl_usd"],
                 })
         # Open positions
-        for p in _demo_trader.open_positions:
+        for p in trader.open_positions:
             if p["pair"] != pair or p["timeframe"] != timeframe:
                 continue
             if min_ts <= p["entry_ts"] <= max_ts:

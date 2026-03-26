@@ -338,3 +338,11 @@ export interface PriceHistoryResponse {
   trade_markers: TradeMarker[]
   zones: Record<string, ZoneOverlay>
 }
+
+// ─── Demo Comparison ──────────────────────────────────────────────────────────
+
+export type DemoMode = 'aggressive' | 'conservative'
+
+export interface DemoComparisonResponse {
+  comparison: Record<DemoMode, DemoMetrics | { status: string; initial_capital: number; current_equity?: number }>
+}

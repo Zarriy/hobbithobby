@@ -46,7 +46,8 @@ app.add_middleware(
         "http://localhost:3000",
         "http://localhost:8080",
         "http://127.0.0.1:3000",
-        os.getenv("FRONTEND_URL", ""),   # set to https://hobbithobby.quest on VPS
+        "https://hobbithobby.quest",
+        "https://www.hobbithobby.quest",
     ],
     allow_methods=["GET"],
     allow_headers=["*"],
@@ -57,7 +58,8 @@ app.include_router(routes.router)
 # Shared mutable dict — one entry per pair
 live_state: dict[str, dict] = {}
 scheduler: Optional[AsyncIOScheduler] = None
-demo_trader: Optional[DemoTrader] = None
+demo_trader_aggressive: Optional[DemoTrader] = None
+demo_trader_conservative: Optional[DemoTrader] = None
 
 # ─── Previous price for fast pulse comparison ───
 _prev_prices: dict[str, float] = {}
@@ -117,8 +119,10 @@ async def full_analysis() -> None:
     ])
 
     # One equity snapshot per full_analysis cycle (not per pair)
-    if demo_trader is not None:
-        demo_trader.record_equity_snapshot(int(time.time() * 1000))
+    ts_ms = int(time.time() * 1000)
+    for _trader in (demo_trader_aggressive, demo_trader_conservative):
+        if _trader is not None:
+            _trader.record_equity_snapshot(ts_ms)
 
 
 async def _run_full_analysis(pair: str, timeframe: str) -> None:
@@ -315,20 +319,21 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
     }
     store.upsert_signal(signal_row)
 
-    # ─── Demo Trading ───
-    if demo_trader is not None:
-        await demo_trader.on_signal(
-            signal=signal,
-            pair=pair,
-            timeframe=timeframe,
-            current_price=current_price,
-            current_candle=candles[-1],
-            bullish_fvg=nearest_bullish_fvg,
-            bearish_fvg=nearest_bearish_fvg,
-            bullish_ob=nearest_bullish_ob,
-            bearish_ob=nearest_bearish_ob,
-            timestamp_ms=now_ms,
-        )
+    # ─── Demo Trading (both modes) ───
+    for _trader in (demo_trader_aggressive, demo_trader_conservative):
+        if _trader is not None:
+            await _trader.on_signal(
+                signal=signal,
+                pair=pair,
+                timeframe=timeframe,
+                current_price=current_price,
+                current_candle=candles[-1],
+                bullish_fvg=nearest_bullish_fvg,
+                bearish_fvg=nearest_bearish_fvg,
+                bullish_ob=nearest_bullish_ob,
+                bearish_ob=nearest_bearish_ob,
+                timestamp_ms=now_ms,
+            )
 
     # ─── Liquidity Sweeps ───
     sweeps = detect_liquidity_sweeps(candles[-50:], swings[-20:])
@@ -464,7 +469,7 @@ async def regime_task() -> None:
 
 @app.on_event("startup")
 async def startup_event() -> None:
-    global scheduler, demo_trader
+    global scheduler, demo_trader_aggressive, demo_trader_conservative
 
     logger.info("Starting Crypto Signal Engine...")
 
@@ -473,12 +478,17 @@ async def startup_event() -> None:
     initialize_demo_db()
     logger.info("Database ready.")
 
-    # 2. Initialize demo trader
-    demo_trader = DemoTrader()
-    demo_trader.load_state()
+    # 2. Initialize demo traders (aggressive = yellow+green, conservative = green only)
+    demo_trader_aggressive = DemoTrader(mode="aggressive")
+    demo_trader_aggressive.load_state()
+    demo_trader_conservative = DemoTrader(mode="conservative")
+    demo_trader_conservative.load_state()
     set_live_state_ref(live_state)
-    routes.set_demo_trader(demo_trader)
-    logger.info("Demo trader ready. Equity=$%.2f", demo_trader.equity)
+    routes.set_demo_traders(demo_trader_aggressive, demo_trader_conservative)
+    logger.info(
+        "Demo traders ready. Aggressive=$%.2f | Conservative=$%.2f",
+        demo_trader_aggressive.equity, demo_trader_conservative.equity,
+    )
 
     # 3. Backfill (blocking — need data before signals)
     logger.info("Running backfill (this may take a minute)...")
