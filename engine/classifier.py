@@ -79,18 +79,18 @@ def classify(
         action_bias = "long_bias"
 
     elif price_up and oi_building and high_volume and extreme_positive_funding:
-        # Price up + OI up + crowded longs = short squeeze risk (unsustainable)
-        # Still tradeable but at reduced confidence — OI scales size, not kills trade
+        # Price up + OI up + crowded longs = unsustainable squeeze
+        # Fade the move — rally likely to exhaust, short at reduced size
         regime_state = "short_squeeze"
         risk_color = "yellow"
-        action_bias = "long_bias"
+        action_bias = "short_bias"
 
     elif price_up and oi_unwinding and high_volume:
         # Price up but OI falling = short covering rally, not real accumulation
-        # Directional momentum present — trade with caution
+        # Fade — covering rally exhausts once shorts are cleared
         regime_state = "short_squeeze"
         risk_color = "yellow"
-        action_bias = "long_bias"
+        action_bias = "short_bias"
 
     elif price_down and oi_building and high_volume and not extreme_negative_funding:
         # Distribution: new short money entering on downside
@@ -100,10 +100,10 @@ def classify(
 
     elif price_down and oi_building and high_volume and extreme_negative_funding:
         # Price down + OI up + crowded shorts = long liquidation risk
-        # Directional momentum present — trade with reduced size via confidence penalty
+        # Fade the cascade — buy the dip at reduced size once liquidations exhaust
         regime_state = "long_liquidation"
         risk_color = "yellow"
-        action_bias = "short_bias"
+        action_bias = "long_bias"
 
     elif price_down and oi_unwinding and high_volume:
         # Price down + OI falling = long liquidation cascade

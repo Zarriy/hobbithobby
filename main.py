@@ -88,11 +88,12 @@ async def lifespan(app: FastAPI):
     scheduler.add_job(full_analysis, "interval", seconds=config.FULL_ANALYSIS_INTERVAL_SECONDS, id="full_analysis")
     scheduler.add_job(hourly_task, "interval", seconds=config.HOURLY_TASK_INTERVAL_SECONDS, id="hourly")
     scheduler.add_job(regime_task, "interval", seconds=config.HTF_REGIME_INTERVAL_SECONDS, id="regime")
+    scheduler.add_job(daily_summary, "cron", hour=9, minute=0, id="daily_summary")
     scheduler.start()
 
     routes.set_scheduler_status({
         "running": True,
-        "jobs": ["fast_pulse", "full_analysis", "hourly", "regime"],
+        "jobs": ["fast_pulse", "full_analysis", "hourly", "regime", "daily_summary"],
         "started_at": int(time.time()),
     })
     logger.info("Scheduler started. System ready.")
@@ -156,7 +157,9 @@ async def fast_pulse() -> None:
                 if abs(change) >= 0.03:
                     logger.warning("Fast pulse: %s moved %.2f%% in 60s", pair, change * 100)
                     await telegram.send_message(
-                        telegram.build_fast_pulse_alert(pair, change, current_price)
+                        f"\ud83d\udea8 <b>FAST MOVE</b> \u2014 {pair}\n"
+                        f"Price: ${current_price:,.2f}\n"
+                        f"Change (60s): {change:+.2%}"
                     )
 
             _prev_prices[pair] = current_price
@@ -406,21 +409,16 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
                 timestamp_ms=now_ms,
             )
 
-    # ─── Liquidity Sweeps ───
+    # ─── Liquidity Sweeps (log only — no Telegram spam) ───
     sweeps = detect_liquidity_sweeps(candles[-50:], swings[-20:])
-    new_sweeps = [s for s in sweeps if s["timestamp"] >= now_ms - 600_000]  # Last 10 min
+    new_sweeps = [s for s in sweeps if s["timestamp"] >= now_ms - 600_000]
     for sweep in new_sweeps:
         logger.info("Liquidity sweep: %s %s @ %s", pair, sweep["type"], sweep["level"])
-        await telegram.send_message(telegram.build_sweep_alert(sweep, pair))
 
-    # ─── CHoCH Alerts ───
+    # ─── CHoCH (log only — included in daily summary) ───
     recent_choch = [b for b in breaks if b.type.startswith("choch") and b.timestamp >= now_ms - 600_000]
     for choch in recent_choch:
-        await telegram.send_message(telegram.build_choch_alert(
-            {"type": choch.type, "broken_level": choch.broken_level,
-             "trend_before": choch.trend_before, "trend_after": choch.trend_after},
-            pair, timeframe
-        ))
+        logger.info("CHoCH: %s %s %s → %s", pair, timeframe, choch.trend_before, choch.trend_after)
 
     # ─── Update Live State ───
     if pair not in live_state:
@@ -432,20 +430,8 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
     })
     routes.set_live_state(live_state)
 
-    # ─── Telegram Alert (with dedup) ───
-    if signal.confidence >= config.CONFIDENCE_THRESHOLD_TRADE:
-        await telegram.send_signal_alert(
-            signal=signal,
-            current_price=current_price,
-            bullish_fvg=nearest_bullish_fvg,
-            bearish_fvg=nearest_bearish_fvg,
-            bullish_ob=nearest_bullish_ob,
-            bearish_ob=nearest_bearish_ob,
-            equal_highs=equal_levels.get("equal_highs"),
-            equal_lows=equal_levels.get("equal_lows"),
-            poc=poc,
-            macro_regime=live_state.get(pair, {}).get("macro_regime"),
-        )
+    # NOTE: Telegram trade alerts are now sent from demo/trader.py on actual entry/exit.
+    # No per-signal alerts here — reduces noise.
 
     logger.info(
         "%s %s | %s | %s | conf=%d | price=%s",
@@ -532,6 +518,52 @@ async def regime_task() -> None:
             logger.error("Regime task error for %s: %s", pair, e)
 
     await asyncio.gather(*[_regime(pair) for pair in config.PAIRS])
+
+
+# ════════════════════════════════════════
+# DAILY SUMMARY — runs at 9:00 AM UTC
+# ════════════════════════════════════════
+
+async def daily_summary() -> None:
+    """Build and send a per-coin briefing via Telegram."""
+    try:
+        pair_data = []
+        for pair in config.PAIRS:
+            # Get latest 1h signal from live_state
+            state = live_state.get(pair, {})
+            last_signal = state.get("last_signal", {})
+            price = state.get("last_price", 0.0)
+
+            pair_data.append({
+                "pair": pair,
+                "price": price,
+                "regime": last_signal.get("regime_state", "unknown"),
+                "risk_color": last_signal.get("risk_color", "yellow"),
+                "confidence": last_signal.get("confidence", 0),
+                "trend": last_signal.get("trend_state", "unknown"),
+                "action_bias": json.loads(last_signal.get("metadata", "{}")).get("action_bias", "stay_flat"),
+                "oi_change": last_signal.get("oi_change_percent", 0.0),
+                "vol_zscore": last_signal.get("volume_zscore", 0.0),
+                "funding_rate": last_signal.get("funding_rate", 0.0),
+                "macro_regime": state.get("macro_regime"),
+            })
+
+        agg_equity = demo_trader_aggressive.equity if demo_trader_aggressive else config.INITIAL_CAPITAL
+        con_equity = demo_trader_conservative.equity if demo_trader_conservative else config.INITIAL_CAPITAL
+        agg_open = len(demo_trader_aggressive.open_positions) if demo_trader_aggressive else 0
+        con_open = len(demo_trader_conservative.open_positions) if demo_trader_conservative else 0
+
+        text = telegram.build_daily_summary(
+            pair_data=pair_data,
+            demo_aggressive_equity=agg_equity,
+            demo_conservative_equity=con_equity,
+            aggressive_open=agg_open,
+            conservative_open=con_open,
+        )
+        await telegram.send_message(text)
+        logger.info("Daily summary sent via Telegram.")
+    except Exception as e:
+        logger.error("Daily summary error: %s", e, exc_info=True)
 
 
 # ─── Signal Handlers ───

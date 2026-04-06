@@ -325,8 +325,10 @@ def run_backtest(
             )
 
             if entry:
-                # Apply slippage first — worsens fill on both sides
-                slip_entry = entry["entry_price"] * slippage
+                # Volatility-adjusted slippage — scales with ATR z-score
+                atr_z = signal.atr_zscore if signal else 0.0
+                dynamic_slippage = slippage * (1.0 + max(0.0, atr_z) * 0.5)
+                slip_entry = entry["entry_price"] * dynamic_slippage
                 if entry["side"] == "long":
                     actual_entry = entry["entry_price"] + slip_entry
                 else:

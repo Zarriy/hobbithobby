@@ -10,6 +10,7 @@ import time
 from typing import Optional
 
 import config
+from alerts import telegram
 from backtest.rules import TradeRule, check_entry, check_exit
 from demo import store as demo_store
 from engine.classifier import SignalOutput
@@ -147,7 +148,7 @@ class DemoTrader:
             )
 
             if entry:
-                self._open_position(entry, pair, timeframe, signal.confidence, timestamp_ms)
+                self._open_position(entry, pair, timeframe, signal.confidence, signal.atr_zscore, timestamp_ms)
 
     def _open_position(
         self,
@@ -155,14 +156,16 @@ class DemoTrader:
         pair: str,
         timeframe: str,
         confidence: int,
+        atr_zscore: float,
         timestamp_ms: int,
     ) -> None:
         """Size and persist a new paper position."""
         if entry["risk_distance"] <= 0:
             return
 
-        # Apply entry slippage — worsens fill on both sides
-        slip = entry["entry_price"] * self._slippage
+        # Volatility-adjusted slippage — scales with ATR z-score
+        dynamic_slippage = self._slippage * (1.0 + max(0.0, atr_zscore) * 0.5)
+        slip = entry["entry_price"] * dynamic_slippage
         actual_entry = entry["entry_price"] + slip if entry["side"] == "long" else entry["entry_price"] - slip
 
         # Recalculate risk distance and TP1 from actual fill price
@@ -220,8 +223,27 @@ class DemoTrader:
         logger.info(
             "DEMO ENTRY: %s %s %s @ %.4f | lev=%dx | SL=%.4f | conf=%d",
             pair, timeframe, entry["side"].upper(), actual_entry,
-            int(self._leverage), entry["stop_loss"], confidence,
+            int(self._leverage), sl_price, confidence,
         )
+
+        # Send immediate Telegram alert for trade entry
+        asyncio.create_task(telegram.send_message(
+            telegram.build_trade_entry_alert(
+                pair=pair,
+                timeframe=timeframe,
+                side=entry["side"],
+                entry_price=actual_entry,
+                stop_loss=sl_price,
+                tp1=actual_tp1,
+                confidence=confidence,
+                regime=entry["regime_at_entry"],
+                risk_color=entry.get("risk_color_at_entry", ""),
+                mode=self._mode,
+                leverage=self._leverage,
+                size_usd=size_usd,
+                tp2=entry.get("tp2_target"),
+            )
+        ))
 
     def _handle_tp1_partial(self, pos: dict, exit_result: dict, timestamp_ms: int) -> None:
         """Close 50% at TP1, move stop to breakeven, set TP2 at 3R."""
@@ -310,6 +332,22 @@ class DemoTrader:
             pos["pair"], pos["side"].upper(), exit_price,
             exit_result["exit_reason"], net_pnl, self._equity,
         )
+
+        # Send immediate Telegram alert for trade exit
+        asyncio.create_task(telegram.send_message(
+            telegram.build_trade_exit_alert(
+                pair=pos["pair"],
+                side=pos["side"],
+                entry_price=pos["entry_price"],
+                exit_price=exit_price,
+                exit_reason=exit_result["exit_reason"],
+                net_pnl_usd=net_pnl,
+                pnl_pct=pnl_leveraged_pct,
+                hold_hours=hold_hours,
+                mode=self._mode,
+                equity=self._equity,
+            )
+        ))
 
     def record_equity_snapshot(self, timestamp_ms: int) -> None:
         """Called once per full_analysis cycle (not per pair). Records equity + open P&L."""

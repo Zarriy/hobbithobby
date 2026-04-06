@@ -112,7 +112,7 @@ def check_entry(
         if level is not None:
             # Use candle low (wick) if available — price wicking into zone counts as touch
             probe_price = candle_low if candle_low is not None else current_price
-            if probe_price <= level.upper_bound * 1.005:  # within 0.5% of zone top
+            if probe_price <= level.upper_bound * 1.01:  # within 1.0% of zone top
                 # Enter at zone upper_bound if wick touched it, else close
                 if probe_price <= level.upper_bound:
                     entry_price = level.upper_bound  # wick entered zone — limit at top
@@ -138,7 +138,7 @@ def check_entry(
             return None
         if level is not None:
             probe_price = candle_high if candle_high is not None else current_price
-            if probe_price >= level.lower_bound * 0.995:  # within 0.5% of zone bottom
+            if probe_price >= level.lower_bound * 0.99:  # within 1.0% of zone bottom
                 if probe_price >= level.lower_bound:
                     entry_price = level.lower_bound  # wick entered zone — limit at bottom
                 elif rules.entry_at == "zone_midpoint":
