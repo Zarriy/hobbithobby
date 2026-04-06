@@ -123,8 +123,8 @@ def update_fvg_status(fvgs: list[FVG], current_candle: dict) -> list[FVG]:
                     # Closed fully through — filled
                     fvg.status = "filled"
                     fvg.filled_at = ts
-                elif candle_low <= fvg.lower_bound or candle_low <= fvg.upper_bound:
-                    # Wick touched the gap
+                else:
+                    # Wick entered the zone but close didn't breach the bottom
                     fvg.status = "partial"
 
         elif fvg.type == "bearish":
@@ -134,8 +134,8 @@ def update_fvg_status(fvgs: list[FVG], current_candle: dict) -> list[FVG]:
                     # Closed fully through — filled
                     fvg.status = "filled"
                     fvg.filled_at = ts
-                elif candle_high >= fvg.upper_bound or candle_high >= fvg.lower_bound:
-                    # Wick touched the gap
+                else:
+                    # Wick entered the zone but close didn't breach the top
                     fvg.status = "partial"
 
     return fvgs

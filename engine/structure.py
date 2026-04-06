@@ -88,9 +88,9 @@ def detect_structure_breaks(
     for sp in swing_points:
         if sp.type == "swing_high":
             if last_swing_high is not None:
-                if trend in ("uptrend", "ranging"):
+                if trend in ("uptrend", "ranging", "transition"):
                     if sp.price > last_swing_high.price:
-                        # Higher high — BOS bullish (continuation)
+                        # Higher high — BOS bullish (continuation or transition resolved)
                         breaks.append(StructureBreak(
                             timestamp=sp.timestamp,
                             type="bos_bullish",
@@ -115,9 +115,9 @@ def detect_structure_breaks(
 
         elif sp.type == "swing_low":
             if last_swing_low is not None:
-                if trend in ("downtrend", "ranging"):
+                if trend in ("downtrend", "ranging", "transition"):
                     if sp.price < last_swing_low.price:
-                        # Lower low — BOS bearish (continuation)
+                        # Lower low — BOS bearish (continuation or transition resolved)
                         breaks.append(StructureBreak(
                             timestamp=sp.timestamp,
                             type="bos_bearish",

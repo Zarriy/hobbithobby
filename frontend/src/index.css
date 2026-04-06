@@ -23,6 +23,52 @@
   --color-ring:                    #6366f1;
 }
 
+/* ── Dark mode ────────────────────────────────────────────────────────────── */
+
+/* System preference (unless user has explicitly chosen light) */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-background:             #0a0f1a;
+    --color-foreground:             #e2e8f0;
+    --color-card:                   #111827;
+    --color-card-foreground:        #e2e8f0;
+    --color-muted:                  #1e293b;
+    --color-muted-foreground:       #94a3b8;
+    --color-border:                 #1e293b;
+    --color-input:                  #1e293b;
+    --color-primary:                #e2e8f0;
+    --color-primary-foreground:     #0a0f1a;
+    --color-secondary:              #1e293b;
+    --color-secondary-foreground:   #e2e8f0;
+    --color-accent:                 #6366f1;
+    --color-accent-foreground:      #ffffff;
+    --color-destructive:            #ef4444;
+    --color-destructive-foreground: #ffffff;
+    --color-ring:                   #6366f1;
+  }
+}
+
+/* Manual dark override via .dark class on <html> */
+.dark {
+  --color-background:             #0a0f1a;
+  --color-foreground:             #e2e8f0;
+  --color-card:                   #111827;
+  --color-card-foreground:        #e2e8f0;
+  --color-muted:                  #1e293b;
+  --color-muted-foreground:       #94a3b8;
+  --color-border:                 #1e293b;
+  --color-input:                  #1e293b;
+  --color-primary:                #e2e8f0;
+  --color-primary-foreground:     #0a0f1a;
+  --color-secondary:              #1e293b;
+  --color-secondary-foreground:   #e2e8f0;
+  --color-accent:                 #6366f1;
+  --color-accent-foreground:      #ffffff;
+  --color-destructive:            #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-ring:                   #6366f1;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

@@ -102,40 +102,56 @@ async def _download_historical(
 
     HR_MS = 3_600_000  # 1 hour in milliseconds
 
+    # CoinGlass HOBBYIST plan supported intervals (1h is NOT supported)
+    _CG_SUPPORTED = {"4h", "6h", "8h", "12h", "1d", "1w"}
+    cg_interval = timeframe if timeframe in _CG_SUPPORTED else None
+    cg_interval_ms = TIMEFRAME_MS.get(cg_interval, HR_MS) if cg_interval else HR_MS
+
     # ── OI history ──────────────────────────────────────────────────────────
     # Prefer CoinGlass (years of history); fall back to Binance (~30-60 days).
     oi_map: dict[int, float] = {}
 
-    if config.COINGLASS_API_KEY:
-        logger.info("Fetching OI from CoinGlass (full history)...")
+    if config.COINGLASS_API_KEY and cg_interval:
+        logger.info("Fetching OI from CoinGlass at %s interval (full history)...", cg_interval)
         cg_cursor = start_ms
         while cg_cursor < end_ms:
             cg_hist = await fetcher.fetch_coinglass_oi_history(
-                pair, interval="1h", start_time=cg_cursor, end_time=end_ms, limit=4380
+                pair, interval=cg_interval, start_time=cg_cursor, end_time=end_ms, limit=4380
             )
             if not cg_hist:
+                logger.warning(
+                    "CoinGlass returned empty OI for %s at cursor %d — stopping OI fetch",
+                    pair, cg_cursor,
+                )
                 break
             for entry in cg_hist:
-                bucket = (entry["timestamp"] // HR_MS) * HR_MS
+                bucket = (entry["timestamp"] // cg_interval_ms) * cg_interval_ms
                 oi_map[bucket] = entry["open_interest"]
             last_cg_ts = cg_hist[-1]["timestamp"]
             if last_cg_ts <= cg_cursor:
                 break
-            cg_cursor = last_cg_ts + HR_MS
+            cg_cursor = last_cg_ts + cg_interval_ms
             await asyncio.sleep(0.15)
-        logger.info("CoinGlass OI: %d hourly buckets", len(oi_map))
-    else:
-        # Binance /futures/data/openInterestHist rejects startTime with HTTP 400
-        # for dates beyond its ~20-day retention window. Fetch without startTime
-        # to get the most recent ~500 hourly records (~20 days).
-        logger.info("COINGLASS_API_KEY not set — fetching Binance OI (most recent ~20 days)")
+        logger.info("CoinGlass OI: %d %s buckets", len(oi_map), cg_interval)
+    elif config.COINGLASS_API_KEY and not cg_interval:
+        logger.info(
+            "Timeframe %s not supported by CoinGlass HOBBYIST plan — skipping CoinGlass OI fetch",
+            timeframe,
+        )
+
+    # Fall back to Binance OI if CoinGlass is unavailable or returned nothing.
+    # Binance retains ~20 days of 1h OI — partial coverage is better than none.
+    if not oi_map:
+        logger.info(
+            "CoinGlass OI unavailable for %s — falling back to Binance OI (~20 days)", pair
+        )
         oi_hist = await fetcher.fetch_open_interest_hist(pair, period="1h", limit=500)
         if oi_hist:
             for entry in oi_hist:
                 bucket = (entry["timestamp"] // HR_MS) * HR_MS
                 oi_map[bucket] = entry["open_interest"]
-        logger.info("Binance OI: %d hourly buckets (covering ~%d days)",
-                    len(oi_map), len(oi_map) // 24)
+        logger.info("Binance OI fallback: %d hourly buckets (covering ~%d days)",
+                    len(oi_map), len(oi_map) // 24 if oi_map else 0)
 
     # ── Funding rate (every 8h, full history on Binance) ────────────────────
     funding_map: dict[int, float] = {}
@@ -172,10 +188,12 @@ async def _download_historical(
             bucket = (entry["timestamp"] // HR_MS) * HR_MS
             ls_map[bucket] = entry["long_short_ratio"]
 
-    # Enrich candles
+    # Enrich candles — OI uses cg_interval_ms bucket alignment when CoinGlass data present
+    oi_bucket_ms = cg_interval_ms if oi_map and cg_interval else HR_MS
     for ts, candle in all_candles.items():
         hour_bucket = (ts // HR_MS) * HR_MS
-        candle["open_interest"] = oi_map.get(hour_bucket)
+        oi_bucket = (ts // oi_bucket_ms) * oi_bucket_ms
+        candle["open_interest"] = oi_map.get(oi_bucket)
         candle["funding_rate"] = funding_map.get(hour_bucket)
         candle["taker_buy_sell_ratio"] = taker_map.get(hour_bucket)
         candle["long_short_ratio"] = ls_map.get(hour_bucket)

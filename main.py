@@ -6,10 +6,10 @@ Run with: python main.py
 import asyncio
 import json
 import logging
-import os
 import signal
 import sys
 import time
+from contextlib import asynccontextmanager
 from typing import Optional
 
 import numpy as np
@@ -38,8 +38,79 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# ─── App Lifecycle ───
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global scheduler, demo_trader_aggressive, demo_trader_conservative
+
+    logger.info("Starting Crypto Signal Engine...")
+
+    # 1. Initialize DB (existing tables + demo tables)
+    store.initialize_db()
+    initialize_demo_db()
+    logger.info("Database ready.")
+
+    # Warn about missing API keys so operators know what's degraded
+    if not config.TELEGRAM_BOT_TOKEN:
+        logger.warning("TELEGRAM_BOT_TOKEN not set — Telegram alerts will be disabled")
+    if not config.COINGLASS_API_KEY:
+        logger.warning(
+            "COINGLASS_API_KEY not set — OI data unavailable; "
+            "conservative trader will rarely generate green signals"
+        )
+
+    # 2. Initialize demo traders (aggressive = yellow+green, conservative = green only)
+    demo_trader_aggressive = DemoTrader(mode="aggressive")
+    demo_trader_aggressive.load_state()
+    demo_trader_conservative = DemoTrader(mode="conservative")
+    demo_trader_conservative.load_state()
+    set_live_state_ref(live_state)
+    routes.set_demo_traders(demo_trader_aggressive, demo_trader_conservative)
+    logger.info(
+        "Demo traders ready. Aggressive=$%.2f | Conservative=$%.2f",
+        demo_trader_aggressive.equity, demo_trader_conservative.equity,
+    )
+
+    # 3. Backfill (blocking — need data before signals)
+    logger.info("Running backfill (this may take a minute)...")
+    await backfill.backfill_all_live()
+    logger.info("Backfill complete.")
+
+    # 4. Run initial analysis
+    logger.info("Running initial analysis...")
+    await full_analysis()
+    await regime_task()
+
+    # 5. Start scheduler
+    scheduler = AsyncIOScheduler()
+    scheduler.add_job(fast_pulse, "interval", seconds=config.FAST_PULSE_INTERVAL_SECONDS, id="fast_pulse")
+    scheduler.add_job(full_analysis, "interval", seconds=config.FULL_ANALYSIS_INTERVAL_SECONDS, id="full_analysis")
+    scheduler.add_job(hourly_task, "interval", seconds=config.HOURLY_TASK_INTERVAL_SECONDS, id="hourly")
+    scheduler.add_job(regime_task, "interval", seconds=config.HTF_REGIME_INTERVAL_SECONDS, id="regime")
+    scheduler.start()
+
+    routes.set_scheduler_status({
+        "running": True,
+        "jobs": ["fast_pulse", "full_analysis", "hourly", "regime"],
+        "started_at": int(time.time()),
+    })
+    logger.info("Scheduler started. System ready.")
+    logger.info("API docs: http://localhost:8001/docs")
+
+    yield  # app is running
+
+    # Shutdown
+    logger.info("Shutting down...")
+    if scheduler and scheduler.running:
+        scheduler.shutdown(wait=True)
+    await fetcher.close_client()
+    await fetcher.close_cg_client()
+    logger.info("Shutdown complete.")
+
+
 # ─── FastAPI App ───
-app = FastAPI(title="Crypto Signal Engine", version="1.0.0")
+app = FastAPI(title="Crypto Signal Engine", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -176,9 +247,9 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
     prev_close = float(closes[-2]) if len(closes) >= 2 else current_price
     price_change = (current_price - prev_close) / prev_close if prev_close > 0 else 0.0
 
-    # OI change
+    # OI change — None means no OI data available (triggers volume-only fallback in classifier)
     oi_values = [c.get("open_interest") for c in candles if c.get("open_interest") is not None]
-    oi_change = 0.0
+    oi_change: Optional[float] = None
     lb = config.OI_CHANGE_LOOKBACK
     if len(oi_values) > lb and oi_values[-1 - lb] > 0:
         oi_change = (oi_values[-1] - oi_values[-1 - lb]) / oi_values[-1 - lb]
@@ -248,8 +319,8 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
 
     # ─── Persist Signal ───
     # Build reasoning summary for metadata
-    oi_pct = oi_change * 100
-    oi_note = "OI data unavailable — volume fallback used" if oi_change == 0.0 else None
+    oi_pct = (oi_change * 100) if oi_change is not None else 0.0
+    oi_note = "OI data unavailable — volume fallback used" if oi_change is None else None
     reasoning = {
         "regime_factors": [
             {"factor": "volume_zscore", "value": round(current_vol_zscore, 3),
@@ -270,7 +341,7 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
         "confidence_breakdown": {
             "base_score": 50,
             "volume_bonus": 20 if current_vol_zscore >= 2.0 else 0,
-            "oi_bonus": 15 if abs(oi_change) >= 0.05 else 0,
+            "oi_bonus": 15 if oi_change is not None and abs(oi_change) >= 0.05 else 0,
             "funding_bonus": 10 if abs(funding_rate) >= config.FUNDING_RATE_EXTREME_POSITIVE else 0,
             "taker_bonus": 10 if taker_ratio >= 0.55 else 0,
             "final": signal.confidence,
@@ -285,7 +356,7 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
         "summary": (
             f"{signal.regime_state} regime | conf={signal.confidence} | "
             f"vol_z={round(current_vol_zscore, 2)} | "
-            + ("OI data unavailable — volume fallback" if oi_change == 0 else f"oi_chg={round(oi_pct, 2)}%")
+            + ("OI data unavailable — volume fallback" if oi_change is None else f"oi_chg={round(oi_pct, 2)}%")
         ),
     }
 
@@ -305,7 +376,7 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
         "equal_highs": json.dumps(equal_levels.get("equal_highs", [])),
         "equal_lows": json.dumps(equal_levels.get("equal_lows", [])),
         "volume_zscore": current_vol_zscore,
-        "oi_change_percent": oi_change,
+        "oi_change_percent": oi_change if oi_change is not None else 0.0,
         "funding_rate": funding_rate,
         "taker_ratio": taker_ratio,
         "atr": current_atr,
@@ -461,70 +532,6 @@ async def regime_task() -> None:
             logger.error("Regime task error for %s: %s", pair, e)
 
     await asyncio.gather(*[_regime(pair) for pair in config.PAIRS])
-
-
-# ════════════════════════════════════════
-# APP LIFECYCLE
-# ════════════════════════════════════════
-
-@app.on_event("startup")
-async def startup_event() -> None:
-    global scheduler, demo_trader_aggressive, demo_trader_conservative
-
-    logger.info("Starting Crypto Signal Engine...")
-
-    # 1. Initialize DB (existing tables + demo tables)
-    store.initialize_db()
-    initialize_demo_db()
-    logger.info("Database ready.")
-
-    # 2. Initialize demo traders (aggressive = yellow+green, conservative = green only)
-    demo_trader_aggressive = DemoTrader(mode="aggressive")
-    demo_trader_aggressive.load_state()
-    demo_trader_conservative = DemoTrader(mode="conservative")
-    demo_trader_conservative.load_state()
-    set_live_state_ref(live_state)
-    routes.set_demo_traders(demo_trader_aggressive, demo_trader_conservative)
-    logger.info(
-        "Demo traders ready. Aggressive=$%.2f | Conservative=$%.2f",
-        demo_trader_aggressive.equity, demo_trader_conservative.equity,
-    )
-
-    # 3. Backfill (blocking — need data before signals)
-    logger.info("Running backfill (this may take a minute)...")
-    await backfill.backfill_all_live()
-    logger.info("Backfill complete.")
-
-    # 4. Run initial analysis
-    logger.info("Running initial analysis...")
-    await full_analysis()
-    await regime_task()
-
-    # 5. Start scheduler
-    scheduler = AsyncIOScheduler()
-    scheduler.add_job(fast_pulse, "interval", seconds=config.FAST_PULSE_INTERVAL_SECONDS, id="fast_pulse")
-    scheduler.add_job(full_analysis, "interval", seconds=config.FULL_ANALYSIS_INTERVAL_SECONDS, id="full_analysis")
-    scheduler.add_job(hourly_task, "interval", seconds=config.HOURLY_TASK_INTERVAL_SECONDS, id="hourly")
-    scheduler.add_job(regime_task, "interval", seconds=config.HTF_REGIME_INTERVAL_SECONDS, id="regime")
-    scheduler.start()
-
-    routes.set_scheduler_status({
-        "running": True,
-        "jobs": ["fast_pulse", "full_analysis", "hourly", "regime"],
-        "started_at": int(time.time()),
-    })
-    logger.info("Scheduler started. System ready.")
-    logger.info("API docs: http://localhost:8000/docs")
-
-
-@app.on_event("shutdown")
-async def shutdown_event() -> None:
-    global scheduler
-    logger.info("Shutting down...")
-    if scheduler and scheduler.running:
-        scheduler.shutdown(wait=True)
-    await fetcher.close_client()
-    logger.info("Shutdown complete.")
 
 
 # ─── Signal Handlers ───

@@ -74,7 +74,6 @@ class DemoTrader:
         """Unrealized leveraged P&L in USD for a position at current_price."""
         entry = position["entry_price"]
         size_usd = position["size_usd"]
-        leverage = position.get("leverage", self._leverage)
         side = position["side"]
 
         if entry <= 0:
@@ -84,7 +83,8 @@ class DemoTrader:
         if side == "short":
             price_change_pct = -price_change_pct
 
-        return size_usd * price_change_pct * leverage
+        # size_usd is the full notional (leverage already embedded in sizing formula)
+        return size_usd * price_change_pct
 
     def _liquidation_price(self, entry_price: float, side: str, leverage: float) -> float:
         mm = config.MAINTENANCE_MARGIN_RATE
@@ -158,17 +158,30 @@ class DemoTrader:
         timestamp_ms: int,
     ) -> None:
         """Size and persist a new paper position."""
-        risk_usd = self._equity * self._rules.risk_percent_base * entry["size_multiplier"]
         if entry["risk_distance"] <= 0:
             return
 
-        size_usd = risk_usd / (entry["risk_distance"] / entry["entry_price"])
-        if size_usd <= 0 or size_usd > self._equity * 5:
-            return
-
-        # Apply entry slippage
+        # Apply entry slippage — worsens fill on both sides
         slip = entry["entry_price"] * self._slippage
         actual_entry = entry["entry_price"] + slip if entry["side"] == "long" else entry["entry_price"] - slip
+
+        # Recalculate risk distance and TP1 from actual fill price
+        # SL stays at zone boundary (absolute level); risk distance shifts with entry
+        sl_price = entry["stop_loss"]
+        actual_risk_distance = abs(actual_entry - sl_price)
+        if actual_risk_distance < actual_entry * 0.0001:
+            return
+
+        if entry["side"] == "long":
+            actual_tp1 = actual_entry + actual_risk_distance * self._rules.take_profit_1_rr
+        else:
+            actual_tp1 = actual_entry - actual_risk_distance * self._rules.take_profit_1_rr
+
+        # Size from actual risk distance so 1% risk rule stays accurate
+        risk_usd = self._equity * self._rules.risk_percent_base * entry["size_multiplier"]
+        size_usd = risk_usd / (actual_risk_distance / actual_entry)
+        if size_usd <= 0 or size_usd > self._equity * 5:
+            return
 
         entry_fee = size_usd * self._fees
         self._equity -= entry_fee
@@ -181,11 +194,11 @@ class DemoTrader:
             "timeframe": timeframe,
             "side": entry["side"],
             "entry_price": actual_entry,
-            "stop_loss": entry["stop_loss"],
-            "tp1": entry["tp1"],
+            "stop_loss": sl_price,
+            "tp1": actual_tp1,
             "tp2_target": entry.get("tp2_target"),
             "size_usd": size_usd,
-            "risk_distance": entry["risk_distance"],
+            "risk_distance": actual_risk_distance,
             "size_multiplier": entry["size_multiplier"],
             "leverage": self._leverage,
             "margin_usd": margin_usd,
@@ -213,7 +226,8 @@ class DemoTrader:
     def _handle_tp1_partial(self, pos: dict, exit_result: dict, timestamp_ms: int) -> None:
         """Close 50% at TP1, move stop to breakeven, set TP2 at 3R."""
         partial_size = pos["size_usd"] * 0.5
-        gross_pnl = exit_result["pnl_percent"] * partial_size * self._leverage
+        # size_usd is full notional — no extra leverage multiplier needed
+        gross_pnl = exit_result["pnl_percent"] * partial_size
         fee = partial_size * self._fees
         net = gross_pnl - fee
 
@@ -250,7 +264,8 @@ class DemoTrader:
         exit_price = exit_result["exit_price"]
         pnl_pct_raw = exit_result["pnl_percent"]  # unleveraged
 
-        gross_pnl = pnl_pct_raw * pos["size_usd"] * self._leverage
+        # size_usd is full notional — no extra leverage multiplier needed
+        gross_pnl = pnl_pct_raw * pos["size_usd"]
         hold_hours = (timestamp_ms - pos["entry_ts"]) / 3_600_000
         funding_periods = int(hold_hours / 8)
         funding_cost = abs(pos["size_usd"]) * 0.0001 * funding_periods

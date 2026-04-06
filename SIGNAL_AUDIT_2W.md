@@ -1,0 +1,1762 @@
+# Signal Audit — Last 14 Days
+
+Generated: **2026-03-28 08:48 UTC**  
+Pairs: BTCUSDT, ETHUSDT, SOLUSDT, XRPUSDT, TAOUSDT  
+Timeframe: 1h  
+Modes: both  
+Confidence threshold: 70  
+Capital: $10,000  
+Max hold: 48h  
+Leverage: 10.0×  
+
+---
+
+## Legend
+
+- 🟢 = green signal / win trade  
+- 🟡 = yellow signal / TP1 partial  
+- 🔴 = red signal / loss trade  
+- ⚪ = below threshold (conf < 70)  
+- `PASS` = gate condition met  
+- `SKIP` = gate failed, trade not taken  
+
+---
+
+## Mode: AGGRESSIVE
+
+### BTCUSDT · 1h · AGGRESSIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 12:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=72735.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=73344.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=72353.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=71800.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=71846.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 18:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=71020.1000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 19:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=71148.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=71307.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-14 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=70790.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=71174.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=71404.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=71751.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=72715.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 23:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=72778.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 03:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=73539.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 04:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=73799.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 05:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74176.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=73680.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 14:00 UTC` 🟡🟢 **distribution** conf=70 bias=short_bias trend=uptrend zone=equilibrium price=73519.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → SKIP  trend_state=uptrend (need down/ranging/transition for short)
+- `2026-03-16 19:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=73928.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=74191.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 00:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=75283.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 01:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=75584.7000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=73997.1000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=73878.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=74120.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74480.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 18:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74637.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74469.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=74650.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 11:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=72906.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=72325.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 13:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=72104.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-18 14:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=71160.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-18 15:00 UTC` 🟡🟡 **short_squeeze** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=71436.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 16:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=71289.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=71556.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 07:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=70145.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=70463.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 12:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=69264.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69866.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=69372.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=69426.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69831.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69706.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69829.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=68881.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 00:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=68904.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=67864.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 05:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=68864.2000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=67845.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=68306.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=70097.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=70067.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69847.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 11:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=71650.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 12:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=71685.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=70792.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=71290.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=69617.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69054.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 20:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=68973.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-27 08:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=67876.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 10:00 UTC` 🟢🟢 **distribution** conf=80 bias=short_bias trend=downtrend zone=equilibrium price=66456.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=67912.1000–68416.5000, candle_high=67737.9000
+  - ✅ **TRADE ENTERED #1** SHORT entry=68130.2179 SL=68484.9165 TP1=67683.3753 size=$19,208 (1.0× mult) zone=FVG equity → $9,992.32
+  - `2026-03-27 11:00 UTC` 🟡 **TP1 PARTIAL** #1 SHORT exit @ 67683.3753 | partial P&L +0.66% | SL moved to breakeven, TP2 set @ 67168.3684
+- `2026-03-27 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=66663.2000
+  - Gates: PASS  positions (1/2) → SKIP  confidence 65 < 70
+  - `2026-03-27 12:00 UTC` 🟢 **TP2 WIN** #1 SHORT exit @ 67168.3684 | gross +1.41% | net $+186.24 | hold 2.0h | equity → $10,237.73
+
+**Summary** — 337 signals checked (135 below conf<60 skipped) | 202 above threshold | 1 trades entered | 1 closed
+Win rate: **100.0%** (1/1) | Net P&L: **$+186.24** | Final equity: **$10,237.73**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 1 | short | 68130.2179 | 67168.3684 | tp2 | +1.41% | $+186.24 | 2.0h | distribution | 80 | fvg |
+
+---
+
+### ETHUSDT · 1h · AGGRESSIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2145.2300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 13:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=uptrend zone=equilibrium price=2184.5400
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=2129.4000–2140.6700, candle_low=2140.6700
+  - ✅ **TRADE ENTERED #2** LONG entry=2141.7403 SL=2127.2706 TP1=2160.7691 size=$22,202 (1.5× mult) zone=FVG equity → $9,991.12
+  - `2026-03-13 14:00 UTC` 🟡 **TP1 PARTIAL** #2 LONG exit @ 2160.7691 | partial P&L +0.89% | SL moved to breakeven, TP2 set @ 2181.9385
+- `2026-03-13 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2150.3900
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+  - `2026-03-13 15:00 UTC` 🟢 **STOP_LOSS WIN** #2 LONG exit @ 2141.7403 | gross +0.00% | net $+84.16 | hold 2.0h | equity → $10,169.43
+- `2026-03-13 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2127.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 19:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2101.7200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2110.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2091.0100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=2095.2700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=2100.8200
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 05:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=2106.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 09:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=2116.2000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2096.3600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2128.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=2183.7300
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 23:00 UTC` 🟢🟢 **distribution** conf=80 bias=short_bias trend=transition zone=equilibrium price=2177.7300
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=transition → PASS  price_zone=equilibrium → SKIP  no bearish FVG/OB in range
+- `2026-03-16 00:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2170.3900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 01:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=2184.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 02:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2179.6300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 03:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=transition zone=premium price=2235.1300
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-16 04:00 UTC` 🟢🟢 **accumulation** conf=85 bias=long_bias trend=transition zone=premium price=2262.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-16 05:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=2279.4100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=premium price=2261.0100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 07:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=premium price=2248.4300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 08:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=premium price=2242.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=2259.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2278.1900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=2287.5600
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 14:00 UTC` 🟡🟡 **coiled_spring** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=2286.8400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=2296.0700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 17:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=2313.4400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=2359.8300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2325.7500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2327.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 11:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2268.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 12:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=uptrend zone=equilibrium price=2236.4800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-18 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2234.6600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 14:00 UTC` 🟢🔴 **long_liquidation** conf=80 bias=reduce_exposure trend=uptrend zone=discount price=2189.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-18 15:00 UTC` 🟢🔴 **deleveraging** conf=80 bias=reduce_exposure trend=uptrend zone=discount price=2186.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-18 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=discount price=2202.5900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=discount price=2201.5500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=2136.6700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2126.2700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 14:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=2128.1500
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2154.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2083.3700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 00:00 UTC` 🟢🔴 **deleveraging** conf=80 bias=reduce_exposure trend=transition zone=equilibrium price=2086.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-22 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2089.9900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2101.1500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 03:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2112.8400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2044.8300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2036.2000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2043.6500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=2133.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 12:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2143.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2160.5100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2133.1500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 17:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2108.3800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2147.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 09:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2185.2500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 11:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=2185.0100
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2182.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2161.6700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2173.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2171.7300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 05:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2118.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 09:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2081.2900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=2080.0700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2063.8300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-27 10:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1989.7000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+
+**Summary** — 337 signals checked (138 below conf<60 skipped) | 199 above threshold | 1 trades entered | 1 closed
+Win rate: **100.0%** (1/1) | Net P&L: **$+84.16** | Final equity: **$10,169.43**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 2 | long | 2141.7403 | 2141.7403 | stop_loss | +0.00% | $+84.16 | 2.0h | accumulation | 95 | fvg |
+
+---
+
+### SOLUSDT · 1h · AGGRESSIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=91.8300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=90.6700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.8600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.1200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=87.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=88.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=87.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 21:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=89.9700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=premium price=92.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 23:00 UTC` ⚪🟢 **distribution** conf=65 bias=short_bias trend=transition zone=equilibrium price=92.2800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 01:00 UTC` ⚪🟡 **coiled_spring** conf=65 bias=stay_flat trend=transition zone=equilibrium price=92.0900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 02:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=91.4500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 03:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=transition zone=premium price=93.1400
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-16 04:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=93.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=93.5400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=93.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=93.6200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=93.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=93.7500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=93.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 11:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=91.9500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 12:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=90.3600
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-18 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=discount price=88.9100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 15:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=discount price=89.3100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 09:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=90.1600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟡🟡 **short_squeeze** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=88.4500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=87.5800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=87.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=88.0900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 18:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.0900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 14:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=88.8800
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=89.7800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=87.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 00:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=87.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=85.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=86.6900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=85.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=88.7400
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 12:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=90.1700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=91.3100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 14:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=91.4800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=90.2900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=89.8100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 14:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=transition zone=equilibrium price=89.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-24 15:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=89.6700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 16:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=89.2100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 08:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=92.3200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 09:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=92.5200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 11:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=92.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=92.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=91.7200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=91.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 05:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=89.1800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.9900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=89.0400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 09:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=88.0500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 13:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=uptrend zone=equilibrium price=87.8600
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → SKIP  OB not touched: candle_low=87.2500, zone_top=85.9800 (gap=1.48%)
+- `2026-03-26 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=discount price=87.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 18:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=uptrend zone=discount price=85.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-26 20:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=discount price=86.2800
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=discount price=86.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 08:00 UTC` ⚪🟢 **distribution** conf=65 bias=short_bias trend=uptrend zone=discount price=85.0500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 10:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=discount price=82.9300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+
+**Summary** — 337 signals checked (139 below conf<60 skipped) | 198 above threshold | 0 trades entered | 0 closed
+No trades closed in this window.
+
+---
+
+### XRPUSDT · 1h · AGGRESSIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=1.4432
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4222
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4055
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4151
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4095
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-15 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=1.4232
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=1.4225
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=1.4547
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 03:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=1.4669
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 05:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4804
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.4823
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 14:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=1.5088
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 18:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=1.5349
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 00:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=1.5446
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 01:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=premium price=1.5700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 02:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=1.5931
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 03:00 UTC` ⚪🔴 **long_liquidation** conf=65 bias=reduce_exposure trend=uptrend zone=premium price=1.5435
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.5029
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 15:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.5126
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 16:00 UTC` 🟡🟡 **short_squeeze** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.5177
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 12:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=uptrend zone=equilibrium price=1.4635
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-18 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.4657
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 12:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4366
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=1.4516
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4311
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4439
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 13:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=transition zone=equilibrium price=1.4372
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-20 14:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=1.4358
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 15:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=1.4368
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.4081
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 00:00 UTC` 🟡🔴 **deleveraging** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=1.4101
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=red → SKIP  action_bias=reduce_exposure (stay_flat/reduce)
+- `2026-03-22 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4160
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 03:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4162
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3789
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3902
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 05:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.3903
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 06:00 UTC` 🟢🟢 **distribution** conf=85 bias=short_bias trend=downtrend zone=equilibrium price=1.3710
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=1.3874–1.3907, candle_high=1.3903
+  - ✅ **TRADE ENTERED #3** SHORT entry=1.3867 SL=1.3921 TP1=1.3804 size=$25,754 (1.0× mult) zone=FVG equity → $9,989.70
+  - `2026-03-23 07:00 UTC` 🟡 **TP1 PARTIAL** #3 SHORT exit @ 1.3804 | partial P&L +0.46% | SL moved to breakeven, TP2 set @ 1.3726
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3719
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+  - `2026-03-23 08:00 UTC` 🟢 **TP2 WIN** #3 SHORT exit @ 1.3726 | gross +1.01% | net $+172.97 | hold 2.0h | equity → $10,216.44
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4107
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4414
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 14:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=1.4547
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4334
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=1.4013
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 18:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=1.3880
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 20:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=1.4089
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4151
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 00:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4194
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4280
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 12:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4215
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=1.4148
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 07:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3849
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 09:00 UTC` 🟢🟢 **distribution** conf=85 bias=short_bias trend=downtrend zone=equilibrium price=1.3721
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=1.3753–1.3873, candle_high=1.3833
+  - ✅ **TRADE ENTERED #4** SHORT entry=1.3746 SL=1.3887 TP1=1.3552 size=$9,978 (1.0× mult) zone=FVG equity → $10,212.45
+- `2026-03-26 10:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3728
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3734
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.3777
+  - Gates: PASS  positions (1/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 14:00 UTC` 🟢🟢 **distribution** conf=85 bias=short_bias trend=downtrend zone=equilibrium price=1.3676
+  - Gates: PASS  positions (1/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=1.3753–1.3873, candle_high=1.3809
+  - ✅ **TRADE ENTERED #5** SHORT entry=1.3746 SL=1.3887 TP1=1.3552 size=$9,974 (1.0× mult) zone=FVG equity → $10,208.46
+  - `2026-03-26 15:00 UTC` 🟡 **TP1 PARTIAL** #4 SHORT exit @ 1.3552 | partial P&L +1.41% | SL moved to breakeven, TP2 set @ 1.3345
+  - `2026-03-26 15:00 UTC` 🟡 **TP1 PARTIAL** #5 SHORT exit @ 1.3552 | partial P&L +1.41% | SL moved to breakeven, TP2 set @ 1.3345
+- `2026-03-26 15:00 UTC` 🟢🟢 **distribution** conf=90 bias=short_bias trend=downtrend zone=equilibrium price=1.3598
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3600
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 18:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3465
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 19:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3431
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 20:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=1.3583
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 21:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=1.3657
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 22:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3627
+  - Gates: SKIP  max_positions (2/2)
+  - `2026-03-27 10:00 UTC` 🟢 **TP2 WIN** #4 SHORT exit @ 1.3345 | gross +2.92% | net $+209.82 | hold 25.0h | equity → $10,555.08
+  - `2026-03-27 10:00 UTC` 🟢 **TP2 WIN** #5 SHORT exit @ 1.3345 | gross +2.92% | net $+209.74 | hold 20.0h | equity → $10,764.82
+- `2026-03-27 10:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3323
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+
+**Summary** — 337 signals checked (137 below conf<60 skipped) | 200 above threshold | 3 trades entered | 3 closed
+Win rate: **100.0%** (3/3) | Net P&L: **$+592.52** | Final equity: **$10,764.82**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 3 | short | 1.3867 | 1.3726 | tp2 | +1.01% | $+172.97 | 2.0h | distribution | 85 | fvg |
+| 4 | short | 1.3746 | 1.3345 | tp2 | +2.92% | $+209.82 | 25.0h | distribution | 85 | fvg |
+| 5 | short | 1.3746 | 1.3345 | tp2 | +2.92% | $+209.74 | 20.0h | distribution | 85 | fvg |
+
+---
+
+### TAOUSDT · 1h · AGGRESSIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=245.6400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-13 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=245.5300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 15:00 UTC` 🟡🟢 **distribution** conf=75 bias=short_bias trend=uptrend zone=premium price=230.3400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → SKIP  trend_state=uptrend (need down/ranging/transition for short)
+- `2026-03-13 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=235.8700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 17:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=premium price=234.3700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 18:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=premium price=231.8500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 19:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=229.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=234.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-14 03:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=243.3400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 05:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=243.5500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 21:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=246.7200
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-14 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=248.9900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-15 00:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=transition zone=equilibrium price=249.8400
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → PASS  price_zone=equilibrium → SKIP  FVG not touched: candle_low=245.3500, zone_top=243.4500 (gap=0.78%)
+- `2026-03-15 01:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=transition zone=premium price=259.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-15 02:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=263.3500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 03:00 UTC` 🟢🟢 **accumulation** conf=85 bias=long_bias trend=transition zone=premium price=270.0300
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-15 04:00 UTC` 🟢🟡 **long_liquidation** conf=85 bias=stay_flat trend=transition zone=premium price=266.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 08:00 UTC` 🟡🟡 **accumulation** conf=77 bias=stay_flat trend=transition zone=premium price=266.3800
+  - Gates: PASS  positions (0/2) → PASS  confidence 77 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 14:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=uptrend zone=equilibrium price=272.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=259.4000–263.4800, candle_low=264.2600
+  - ✅ **TRADE ENTERED #6** LONG entry=261.5707 SL=259.1406 TP1=264.8891 size=$16,146 (1.5× mult) zone=FVG equity → $9,993.54
+  - `2026-03-15 15:00 UTC` 🟡 **TP1 PARTIAL** #6 LONG exit @ 264.8891 | partial P&L +1.27% | SL moved to breakeven, TP2 set @ 268.4689
+- `2026-03-15 15:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=equilibrium price=275.1500
+  - Gates: PASS  positions (1/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=265.7200–271.0000, candle_low=271.0000
+  - ✅ **TRADE ENTERED #7** LONG entry=271.1355 SL=265.4543 TP1=279.3186 size=$7,225 (1.5× mult) zone=FVG equity → $10,089.80
+  - `2026-03-15 16:00 UTC` 🟢 **TP2 WIN** #6 LONG exit @ 268.4689 | gross +2.64% | net $+304.58 | hold 2.0h | equity → $10,394.38
+- `2026-03-15 16:00 UTC` 🟢🟡 **distribution** conf=85 bias=stay_flat trend=uptrend zone=equilibrium price=274.0400
+  - Gates: PASS  positions (1/2) → PASS  confidence 85 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+  - `2026-03-15 17:00 UTC` 🟡 **TP1 PARTIAL** #7 LONG exit @ 279.3186 | partial P&L +3.02% | SL moved to breakeven, TP2 set @ 287.7727
+- `2026-03-15 17:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=279.9200
+  - Gates: PASS  positions (1/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+  - `2026-03-15 18:00 UTC` 🟢 **TP2 WIN** #7 LONG exit @ 287.7727 | gross +6.14% | net $+325.76 | hold 3.0h | equity → $10,827.68
+- `2026-03-15 18:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=290.5500
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-15 19:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=uptrend zone=premium price=278.7600
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 20:00 UTC` 🟡🟡 **accumulation** conf=77 bias=stay_flat trend=uptrend zone=premium price=284.9500
+  - Gates: PASS  positions (0/2) → PASS  confidence 77 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 21:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=285.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-15 22:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=288.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 04:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=278.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=274.6800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=292.6700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=296.9000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=291.9200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-16 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=287.8400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 19:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=279.9400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=281.2000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=282.5600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 01:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=283.4900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=274.2000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-17 18:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=281.7100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=276.3500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=266.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=271.4100
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=265.8400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=267.3300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-18 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=267.7100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=268.4300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 03:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=261.7300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=248.4300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=247.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 17:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=250.3400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=262.5700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 21:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=265.3300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=premium price=274.6600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-19 23:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=premium price=282.6700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 00:00 UTC` 🟢🟢 **distribution** conf=90 bias=short_bias trend=downtrend zone=premium price=278.5100
+  - Gates: PASS  positions (0/2) → PASS  confidence 90 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=premium → PASS  FVG touched: zone=278.6800–282.6800, candle_high=286.8400
+  - ✅ **TRADE ENTERED #8** SHORT entry=278.5407 SL=282.9627 TP1=272.2560 size=$10,230 (1.5× mult) zone=FVG equity → $10,823.59
+- `2026-03-20 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=278.0700
+  - Gates: PASS  positions (1/2) → SKIP  confidence 65 < 70
+  - `2026-03-20 03:00 UTC` 🔴 **STOP_LOSS LOSS** #8 SHORT exit @ 282.9627 | gross -1.59% | net $-171.77 | hold 3.0h | equity → $10,651.82
+- `2026-03-20 03:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=premium price=286.6500
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 04:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=premium price=297.1700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 05:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=downtrend zone=premium price=299.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → SKIP  trend_state=downtrend (need up/ranging/transition for long)
+- `2026-03-20 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=premium price=297.5900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=premium price=302.9300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 08:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=downtrend zone=premium price=297.4800
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 09:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=downtrend zone=premium price=286.3800
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 13:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=278.1900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=277.7300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 16:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=277.3600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=268.9600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 21:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=272.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-20 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=276.0100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 00:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=273.2300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 08:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=271.3100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-21 14:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=276.9600
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-21 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=273.0900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-21 23:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=267.9700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 00:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=273.2200
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 02:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=274.7400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-22 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=264.0100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 00:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=264.8000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 05:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=276.1300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=269.8900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=276.0700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=284.4600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=289.7500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=285.1200
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-23 17:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=286.9400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=289.3800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=premium price=305.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 03:00 UTC` 🟢🟡 **accumulation** conf=85 bias=stay_flat trend=uptrend zone=premium price=313.7100
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 04:00 UTC` 🟢🟢 **distribution** conf=80 bias=short_bias trend=uptrend zone=premium price=309.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → SKIP  trend_state=uptrend (need down/ranging/transition for short)
+- `2026-03-24 05:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=302.3800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 06:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=312.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=318.7500
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 08:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=uptrend zone=premium price=313.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 09:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=310.3300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 10:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=308.9000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=313.7600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 14:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=310.8300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=317.5900
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 17:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=316.1900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 18:00 UTC` 🟢🟡 **accumulation** conf=85 bias=stay_flat trend=uptrend zone=equilibrium price=321.9100
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 19:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=327.1200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-24 20:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=332.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-25 05:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=337.5600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 06:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=338.7300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=341.3500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 08:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=346.7400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 09:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=351.5200
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 10:00 UTC` 🟢🟡 **accumulation** conf=85 bias=stay_flat trend=uptrend zone=premium price=357.2300
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 11:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=361.5800
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-25 12:00 UTC` 🟢🟡 **long_liquidation** conf=95 bias=stay_flat trend=uptrend zone=premium price=352.8700
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=364.0600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=365.4200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=370.9100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-25 20:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=349.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 21:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=348.7900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 22:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=347.0300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 23:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=346.7500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 00:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=349.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 01:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=355.3900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=334.7800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=338.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-26 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=346.3700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=337.8900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 10:00 UTC` 🟡🟢 **distribution** conf=70 bias=short_bias trend=transition zone=discount price=321.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=transition → SKIP  price_zone=discount (need premium/equil for short)
+- `2026-03-27 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=324.6100
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+- `2026-03-27 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=discount price=320.5300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=yellow → SKIP  action_bias=stay_flat (stay_flat/reduce)
+
+**Summary** — 337 signals checked (110 below conf<60 skipped) | 227 above threshold | 3 trades entered | 3 closed
+Win rate: **66.7%** (2/3) | Net P&L: **$+458.57** | Final equity: **$10,651.82**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 6 | long | 261.5707 | 268.4689 | tp2 | +2.64% | $+304.58 | 2.0h | accumulation | 95 | fvg |
+| 7 | long | 271.1355 | 287.7727 | tp2 | +6.14% | $+325.76 | 3.0h | accumulation | 100 | fvg |
+| 8 | short | 278.5407 | 282.9627 | stop_loss | -1.59% | $-171.77 | 3.0h | distribution | 90 | fvg |
+
+---
+
+## Mode: CONSERVATIVE
+
+### BTCUSDT · 1h · CONSERVATIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 12:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=72735.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=73344.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=72353.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=71800.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=71846.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 18:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=71020.1000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 19:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=71148.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=71307.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-14 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=70790.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=71174.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=71404.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=71751.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=72715.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 23:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=72778.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 03:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=73539.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 04:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=73799.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 05:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74176.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=73680.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 14:00 UTC` 🟡🟢 **distribution** conf=70 bias=short_bias trend=uptrend zone=equilibrium price=73519.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → SKIP  trend_state=uptrend (need down/ranging/transition for short)
+- `2026-03-16 19:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=73928.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=74191.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 00:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=75283.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 01:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=75584.7000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=73997.1000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=73878.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=74120.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74480.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 18:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74637.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=74469.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=74650.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 11:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=72906.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=72325.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 13:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=72104.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-18 14:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=71160.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-18 15:00 UTC` 🟡🟡 **short_squeeze** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=71436.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 16:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=71289.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=71556.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 07:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=70145.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=70463.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 12:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=69264.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69866.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=69372.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=69426.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69831.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69706.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69829.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=68881.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 00:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=68904.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=67864.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 05:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=68864.2000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=67845.3000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=68306.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=70097.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=70067.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69847.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 11:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=71650.3000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 12:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=71685.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=70792.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=71290.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=69617.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=69054.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 20:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=68973.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-27 08:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=67876.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 10:00 UTC` 🟢🟢 **distribution** conf=80 bias=short_bias trend=downtrend zone=equilibrium price=66456.4000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=67912.1000–68416.5000, candle_high=67737.9000
+  - ✅ **TRADE ENTERED #9** SHORT entry=68130.2179 SL=68484.9165 TP1=67683.3753 size=$19,208 (1.0× mult) zone=FVG equity → $9,992.32
+  - `2026-03-27 11:00 UTC` 🟡 **TP1 PARTIAL** #9 SHORT exit @ 67683.3753 | partial P&L +0.66% | SL moved to breakeven, TP2 set @ 67168.3684
+- `2026-03-27 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=66663.2000
+  - Gates: PASS  positions (1/2) → SKIP  confidence 65 < 70
+  - `2026-03-27 12:00 UTC` 🟢 **TP2 WIN** #9 SHORT exit @ 67168.3684 | gross +1.41% | net $+186.24 | hold 2.0h | equity → $10,237.73
+
+**Summary** — 337 signals checked (135 below conf<60 skipped) | 202 above threshold | 1 trades entered | 1 closed
+Win rate: **100.0%** (1/1) | Net P&L: **$+186.24** | Final equity: **$10,237.73**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 9 | short | 68130.2179 | 67168.3684 | tp2 | +1.41% | $+186.24 | 2.0h | distribution | 80 | fvg |
+
+---
+
+### ETHUSDT · 1h · CONSERVATIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2145.2300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 13:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=uptrend zone=equilibrium price=2184.5400
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=2129.4000–2140.6700, candle_low=2140.6700
+  - ✅ **TRADE ENTERED #10** LONG entry=2141.7403 SL=2127.2706 TP1=2160.7691 size=$22,202 (1.5× mult) zone=FVG equity → $9,991.12
+  - `2026-03-13 14:00 UTC` 🟡 **TP1 PARTIAL** #10 LONG exit @ 2160.7691 | partial P&L +0.89% | SL moved to breakeven, TP2 set @ 2181.9385
+- `2026-03-13 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2150.3900
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+  - `2026-03-13 15:00 UTC` 🟢 **STOP_LOSS WIN** #10 LONG exit @ 2141.7403 | gross +0.00% | net $+84.16 | hold 2.0h | equity → $10,169.43
+- `2026-03-13 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2127.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 19:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2101.7200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2110.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2091.0100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=2095.2700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=2100.8200
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 05:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=2106.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 09:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=2116.2000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2096.3600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2128.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=2183.7300
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 23:00 UTC` 🟢🟢 **distribution** conf=80 bias=short_bias trend=transition zone=equilibrium price=2177.7300
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=transition → PASS  price_zone=equilibrium → SKIP  no bearish FVG/OB in range
+- `2026-03-16 00:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2170.3900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 01:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=2184.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 02:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2179.6300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 03:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=transition zone=premium price=2235.1300
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-16 04:00 UTC` 🟢🟢 **accumulation** conf=85 bias=long_bias trend=transition zone=premium price=2262.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-16 05:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=2279.4100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=premium price=2261.0100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 07:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=premium price=2248.4300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 08:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=premium price=2242.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=2259.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2278.1900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=2287.5600
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 14:00 UTC` 🟡🟡 **coiled_spring** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=2286.8400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=2296.0700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 17:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=2313.4400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=2359.8300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2325.7500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2327.6000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 11:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=2268.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 12:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=uptrend zone=equilibrium price=2236.4800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-18 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2234.6600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 14:00 UTC` 🟢🔴 **long_liquidation** conf=80 bias=reduce_exposure trend=uptrend zone=discount price=2189.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-18 15:00 UTC` 🟢🔴 **deleveraging** conf=80 bias=reduce_exposure trend=uptrend zone=discount price=2186.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-18 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=discount price=2202.5900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=discount price=2201.5500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=2136.6700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=2126.2700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 14:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=2128.1500
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2154.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2083.3700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 00:00 UTC` 🟢🔴 **deleveraging** conf=80 bias=reduce_exposure trend=transition zone=equilibrium price=2086.2500
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-22 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2089.9900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2101.1500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 03:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2112.8400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2044.8300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2036.2000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2043.6500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=2133.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 12:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2143.0000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2160.5100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2133.1500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 17:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2108.3800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2147.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 09:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2185.2500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 11:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=2185.0100
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=2182.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=2161.6700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2173.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=2171.7300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 05:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2118.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 09:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2081.2900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=2080.0700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=2063.8300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-27 10:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1989.7000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+
+**Summary** — 337 signals checked (138 below conf<60 skipped) | 199 above threshold | 1 trades entered | 1 closed
+Win rate: **100.0%** (1/1) | Net P&L: **$+84.16** | Final equity: **$10,169.43**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 10 | long | 2141.7403 | 2141.7403 | stop_loss | +0.00% | $+84.16 | 2.0h | accumulation | 95 | fvg |
+
+---
+
+### SOLUSDT · 1h · CONSERVATIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=91.8300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=90.6700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.8600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.1200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=87.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=88.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=87.8000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 21:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=89.9700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=premium price=92.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 23:00 UTC` ⚪🟢 **distribution** conf=65 bias=short_bias trend=transition zone=equilibrium price=92.2800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 01:00 UTC` ⚪🟡 **coiled_spring** conf=65 bias=stay_flat trend=transition zone=equilibrium price=92.0900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 02:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=91.4500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 03:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=transition zone=premium price=93.1400
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-16 04:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=93.6000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=93.5400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 09:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=93.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=93.6200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=93.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=93.7500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=93.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 11:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=91.9500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 12:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=90.3600
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-18 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=discount price=88.9100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 15:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=discount price=89.3100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 09:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=90.1600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟡🟡 **short_squeeze** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=88.4500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=87.5800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=87.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=88.0900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 18:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.0900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 13:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 14:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=88.8800
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=89.7800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=87.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 00:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=87.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=85.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=86.6900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=85.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=88.7400
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 12:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=90.1700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=91.3100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 14:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=91.4800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=90.2900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=89.8100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 14:00 UTC` 🟡🔴 **long_liquidation** conf=75 bias=reduce_exposure trend=transition zone=equilibrium price=89.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-24 15:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=89.6700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 16:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=89.2100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 08:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=92.3200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 09:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=92.5200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 11:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=92.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=92.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=91.7200
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 01:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=91.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 05:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=89.1800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=88.9900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=89.0400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 09:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=88.0500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 13:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=uptrend zone=equilibrium price=87.8600
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → SKIP  OB not touched: candle_low=87.2500, zone_top=85.9800 (gap=1.48%)
+- `2026-03-26 15:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=discount price=87.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 18:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=uptrend zone=discount price=85.9900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-26 20:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=discount price=86.2800
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=discount price=86.7600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 08:00 UTC` ⚪🟢 **distribution** conf=65 bias=short_bias trend=uptrend zone=discount price=85.0500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 10:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=discount price=82.9300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+
+**Summary** — 337 signals checked (139 below conf<60 skipped) | 198 above threshold | 0 trades entered | 0 closed
+No trades closed in this window.
+
+---
+
+### XRPUSDT · 1h · CONSERVATIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=1.4432
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4222
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 23:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4055
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4151
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4095
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-15 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=1.4232
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=1.4225
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 22:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=1.4547
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 03:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=1.4669
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 05:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4804
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.4823
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 14:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=1.5088
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 18:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=1.5349
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 00:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=1.5446
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 01:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=premium price=1.5700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 02:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=1.5931
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 03:00 UTC` ⚪🔴 **long_liquidation** conf=65 bias=reduce_exposure trend=uptrend zone=premium price=1.5435
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 13:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.5029
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 15:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.5126
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-17 16:00 UTC` 🟡🟡 **short_squeeze** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.5177
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 12:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=uptrend zone=equilibrium price=1.4635
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-18 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.4657
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 12:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4366
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=1.4516
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4311
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4439
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 13:00 UTC` 🟡🔴 **long_liquidation** conf=70 bias=reduce_exposure trend=transition zone=equilibrium price=1.4372
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-20 14:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=1.4358
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 15:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=1.4368
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-21 23:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=1.4081
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 00:00 UTC` 🟡🔴 **deleveraging** conf=75 bias=reduce_exposure trend=uptrend zone=equilibrium price=1.4101
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=red (need green)
+- `2026-03-22 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4160
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 03:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=1.4162
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 21:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3789
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3902
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 05:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.3903
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 06:00 UTC` 🟢🟢 **distribution** conf=85 bias=short_bias trend=downtrend zone=equilibrium price=1.3710
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=1.3874–1.3907, candle_high=1.3903
+  - ✅ **TRADE ENTERED #11** SHORT entry=1.3867 SL=1.3921 TP1=1.3804 size=$25,754 (1.0× mult) zone=FVG equity → $9,989.70
+  - `2026-03-23 07:00 UTC` 🟡 **TP1 PARTIAL** #11 SHORT exit @ 1.3804 | partial P&L +0.46% | SL moved to breakeven, TP2 set @ 1.3726
+- `2026-03-23 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3719
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+  - `2026-03-23 08:00 UTC` 🟢 **TP2 WIN** #11 SHORT exit @ 1.3726 | gross +1.01% | net $+172.97 | hold 2.0h | equity → $10,216.44
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4107
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4414
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 14:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=1.4547
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4334
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=equilibrium price=1.4013
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 18:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=1.3880
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 20:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=1.4089
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4151
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 00:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4194
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.4280
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 12:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.4215
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=1.4148
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 07:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3849
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 09:00 UTC` 🟢🟢 **distribution** conf=85 bias=short_bias trend=downtrend zone=equilibrium price=1.3721
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=1.3753–1.3873, candle_high=1.3833
+  - ✅ **TRADE ENTERED #12** SHORT entry=1.3746 SL=1.3887 TP1=1.3552 size=$9,978 (1.0× mult) zone=FVG equity → $10,212.45
+- `2026-03-26 10:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3728
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3734
+  - Gates: PASS  positions (1/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 13:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=equilibrium price=1.3777
+  - Gates: PASS  positions (1/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 14:00 UTC` 🟢🟢 **distribution** conf=85 bias=short_bias trend=downtrend zone=equilibrium price=1.3676
+  - Gates: PASS  positions (1/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=1.3753–1.3873, candle_high=1.3809
+  - ✅ **TRADE ENTERED #13** SHORT entry=1.3746 SL=1.3887 TP1=1.3552 size=$9,974 (1.0× mult) zone=FVG equity → $10,208.46
+  - `2026-03-26 15:00 UTC` 🟡 **TP1 PARTIAL** #12 SHORT exit @ 1.3552 | partial P&L +1.41% | SL moved to breakeven, TP2 set @ 1.3345
+  - `2026-03-26 15:00 UTC` 🟡 **TP1 PARTIAL** #13 SHORT exit @ 1.3552 | partial P&L +1.41% | SL moved to breakeven, TP2 set @ 1.3345
+- `2026-03-26 15:00 UTC` 🟢🟢 **distribution** conf=90 bias=short_bias trend=downtrend zone=equilibrium price=1.3598
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3600
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 18:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=1.3465
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 19:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3431
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 20:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=1.3583
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 21:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=1.3657
+  - Gates: SKIP  max_positions (2/2)
+- `2026-03-26 22:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3627
+  - Gates: SKIP  max_positions (2/2)
+  - `2026-03-27 10:00 UTC` 🟢 **TP2 WIN** #12 SHORT exit @ 1.3345 | gross +2.92% | net $+209.82 | hold 25.0h | equity → $10,555.08
+  - `2026-03-27 10:00 UTC` 🟢 **TP2 WIN** #13 SHORT exit @ 1.3345 | gross +2.92% | net $+209.74 | hold 20.0h | equity → $10,764.82
+- `2026-03-27 10:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=1.3323
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+
+**Summary** — 337 signals checked (137 below conf<60 skipped) | 200 above threshold | 3 trades entered | 3 closed
+Win rate: **100.0%** (3/3) | Net P&L: **$+592.52** | Final equity: **$10,764.82**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 11 | short | 1.3867 | 1.3726 | tp2 | +1.01% | $+172.97 | 2.0h | distribution | 85 | fvg |
+| 12 | short | 1.3746 | 1.3345 | tp2 | +2.92% | $+209.82 | 25.0h | distribution | 85 | fvg |
+| 13 | short | 1.3746 | 1.3345 | tp2 | +2.92% | $+209.74 | 20.0h | distribution | 85 | fvg |
+
+---
+
+### TAOUSDT · 1h · CONSERVATIVE
+Period: **2026-03-13 12:00 UTC** → **2026-03-27 12:00 UTC** (337 candles)
+- `2026-03-13 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=245.6400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-13 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=245.5300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 15:00 UTC` 🟡🟢 **distribution** conf=75 bias=short_bias trend=uptrend zone=premium price=230.3400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → SKIP  trend_state=uptrend (need down/ranging/transition for short)
+- `2026-03-13 16:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=235.8700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 17:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=premium price=234.3700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 18:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=premium price=231.8500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 19:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=229.5000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-13 20:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=234.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-14 03:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=243.3400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 05:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=243.5500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-14 21:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=246.7200
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-14 23:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=248.9900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-15 00:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=transition zone=equilibrium price=249.8400
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → PASS  price_zone=equilibrium → SKIP  FVG not touched: candle_low=245.3500, zone_top=243.4500 (gap=0.78%)
+- `2026-03-15 01:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=transition zone=premium price=259.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-15 02:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=premium price=263.3500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 03:00 UTC` 🟢🟢 **accumulation** conf=85 bias=long_bias trend=transition zone=premium price=270.0300
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=transition → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-15 04:00 UTC` 🟢🟡 **long_liquidation** conf=85 bias=stay_flat trend=transition zone=premium price=266.8900
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 08:00 UTC` 🟡🟡 **accumulation** conf=77 bias=stay_flat trend=transition zone=premium price=266.3800
+  - Gates: PASS  positions (0/2) → PASS  confidence 77 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 14:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=uptrend zone=equilibrium price=272.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=259.4000–263.4800, candle_low=264.2600
+  - ✅ **TRADE ENTERED #14** LONG entry=261.5707 SL=259.1406 TP1=264.8891 size=$16,146 (1.5× mult) zone=FVG equity → $9,993.54
+  - `2026-03-15 15:00 UTC` 🟡 **TP1 PARTIAL** #14 LONG exit @ 264.8891 | partial P&L +1.27% | SL moved to breakeven, TP2 set @ 268.4689
+- `2026-03-15 15:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=equilibrium price=275.1500
+  - Gates: PASS  positions (1/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → PASS  price_zone=equilibrium → PASS  FVG touched: zone=265.7200–271.0000, candle_low=271.0000
+  - ✅ **TRADE ENTERED #15** LONG entry=271.1355 SL=265.4543 TP1=279.3186 size=$7,225 (1.5× mult) zone=FVG equity → $10,089.80
+  - `2026-03-15 16:00 UTC` 🟢 **TP2 WIN** #14 LONG exit @ 268.4689 | gross +2.64% | net $+304.58 | hold 2.0h | equity → $10,394.38
+- `2026-03-15 16:00 UTC` 🟢🟡 **distribution** conf=85 bias=stay_flat trend=uptrend zone=equilibrium price=274.0400
+  - Gates: PASS  positions (1/2) → PASS  confidence 85 >= 70 → SKIP  risk_color=yellow (need green)
+  - `2026-03-15 17:00 UTC` 🟡 **TP1 PARTIAL** #15 LONG exit @ 279.3186 | partial P&L +3.02% | SL moved to breakeven, TP2 set @ 287.7727
+- `2026-03-15 17:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=279.9200
+  - Gates: PASS  positions (1/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+  - `2026-03-15 18:00 UTC` 🟢 **TP2 WIN** #15 LONG exit @ 287.7727 | gross +6.14% | net $+325.76 | hold 3.0h | equity → $10,827.68
+- `2026-03-15 18:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=290.5500
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-15 19:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=uptrend zone=premium price=278.7600
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 20:00 UTC` 🟡🟡 **accumulation** conf=77 bias=stay_flat trend=uptrend zone=premium price=284.9500
+  - Gates: PASS  positions (0/2) → PASS  confidence 77 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 21:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=285.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-15 22:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=288.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 04:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=278.6300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=274.6800
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=292.6700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=296.9000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 14:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=291.9200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-16 15:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=287.8400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 19:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=279.9400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=281.2000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-16 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=282.5600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 01:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=283.4900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=274.2000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-17 18:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=281.7100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=276.3500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=266.5000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 13:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=271.4100
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 14:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=265.8400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=equilibrium price=267.3300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-18 21:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=267.7100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-18 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=268.4300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 03:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=261.7300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=248.4300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=247.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 17:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=250.3400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=equilibrium price=262.5700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-19 21:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=equilibrium price=265.3300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=downtrend zone=premium price=274.6600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-19 23:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=premium price=282.6700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 00:00 UTC` 🟢🟢 **distribution** conf=90 bias=short_bias trend=downtrend zone=premium price=278.5100
+  - Gates: PASS  positions (0/2) → PASS  confidence 90 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=downtrend → PASS  price_zone=premium → PASS  FVG touched: zone=278.6800–282.6800, candle_high=286.8400
+  - ✅ **TRADE ENTERED #16** SHORT entry=278.5407 SL=282.9627 TP1=272.2560 size=$10,230 (1.5× mult) zone=FVG equity → $10,823.59
+- `2026-03-20 02:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=downtrend zone=premium price=278.0700
+  - Gates: PASS  positions (1/2) → SKIP  confidence 65 < 70
+  - `2026-03-20 03:00 UTC` 🔴 **STOP_LOSS LOSS** #16 SHORT exit @ 282.9627 | gross -1.59% | net $-171.77 | hold 3.0h | equity → $10,651.82
+- `2026-03-20 03:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=premium price=286.6500
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 04:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=downtrend zone=premium price=297.1700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 05:00 UTC` 🟢🟢 **accumulation** conf=95 bias=long_bias trend=downtrend zone=premium price=299.0000
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → SKIP  trend_state=downtrend (need up/ranging/transition for long)
+- `2026-03-20 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=downtrend zone=premium price=297.5900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=downtrend zone=premium price=302.9300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 08:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=downtrend zone=premium price=297.4800
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 09:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=downtrend zone=premium price=286.3800
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 13:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=278.1900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 15:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=277.7300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 16:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=transition zone=equilibrium price=277.3600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 19:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=268.9600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-20 21:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=272.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-20 22:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=276.0100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 00:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=transition zone=equilibrium price=273.2300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 08:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=discount price=271.3100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-21 14:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=276.9600
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-21 20:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=273.0900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-21 23:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=267.9700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-22 00:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=273.2200
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 02:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=274.7400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-22 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=264.0100
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 00:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=264.8000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 05:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=transition zone=equilibrium price=276.1300
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 06:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=transition zone=equilibrium price=269.8900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=equilibrium price=276.0700
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=284.4600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=289.7500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=285.1200
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-23 17:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=286.9400
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-23 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=289.3800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 02:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=uptrend zone=premium price=305.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 03:00 UTC` 🟢🟡 **accumulation** conf=85 bias=stay_flat trend=uptrend zone=premium price=313.7100
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 04:00 UTC` 🟢🟢 **distribution** conf=80 bias=short_bias trend=uptrend zone=premium price=309.1000
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → SKIP  trend_state=uptrend (need down/ranging/transition for short)
+- `2026-03-24 05:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=302.3800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 06:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=312.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 07:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=318.7500
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 08:00 UTC` 🟡🟡 **distribution** conf=75 bias=stay_flat trend=uptrend zone=premium price=313.4700
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 09:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=310.3300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 10:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=premium price=308.9000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=313.7600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 14:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=310.8300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 16:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=equilibrium price=317.5900
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 17:00 UTC` ⚪🟡 **distribution** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=316.1900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-24 18:00 UTC` 🟢🟡 **accumulation** conf=85 bias=stay_flat trend=uptrend zone=equilibrium price=321.9100
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 19:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=327.1200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-24 20:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=332.2600
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-25 05:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=337.5600
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 06:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=premium price=338.7300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 07:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=341.3500
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 08:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=346.7400
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 09:00 UTC` 🟡🟡 **accumulation** conf=75 bias=stay_flat trend=uptrend zone=premium price=351.5200
+  - Gates: PASS  positions (0/2) → PASS  confidence 75 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 10:00 UTC` 🟢🟡 **accumulation** conf=85 bias=stay_flat trend=uptrend zone=premium price=357.2300
+  - Gates: PASS  positions (0/2) → PASS  confidence 85 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 11:00 UTC` 🟢🟢 **accumulation** conf=100 bias=long_bias trend=uptrend zone=premium price=361.5800
+  - Gates: PASS  positions (0/2) → PASS  confidence 100 >= 70 → PASS  risk_color=green → PASS  action_bias=long_bias → long → PASS  trend_state=uptrend → SKIP  price_zone=premium (need discount/equil for long)
+- `2026-03-25 12:00 UTC` 🟢🟡 **long_liquidation** conf=95 bias=stay_flat trend=uptrend zone=premium price=352.8700
+  - Gates: PASS  positions (0/2) → PASS  confidence 95 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 13:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=364.0600
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 16:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=365.4200
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 17:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=370.9100
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-25 20:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=349.7000
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 21:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=348.7900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 22:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=347.0300
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-25 23:00 UTC` ⚪🔴 **deleveraging** conf=65 bias=reduce_exposure trend=uptrend zone=equilibrium price=346.7500
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 00:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=349.9400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 01:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=premium price=355.3900
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 11:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=334.7800
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 12:00 UTC` 🟡🟡 **accumulation** conf=70 bias=stay_flat trend=uptrend zone=equilibrium price=338.2400
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-26 13:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=uptrend zone=equilibrium price=346.3700
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-26 22:00 UTC` ⚪🟡 **accumulation** conf=65 bias=stay_flat trend=transition zone=equilibrium price=337.8900
+  - Gates: PASS  positions (0/2) → SKIP  confidence 65 < 70
+- `2026-03-27 10:00 UTC` 🟡🟢 **distribution** conf=70 bias=short_bias trend=transition zone=discount price=321.9000
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → PASS  risk_color=green → PASS  action_bias=short_bias → short → PASS  trend_state=transition → SKIP  price_zone=discount (need premium/equil for short)
+- `2026-03-27 11:00 UTC` 🟢🟡 **accumulation** conf=80 bias=stay_flat trend=transition zone=equilibrium price=324.6100
+  - Gates: PASS  positions (0/2) → PASS  confidence 80 >= 70 → SKIP  risk_color=yellow (need green)
+- `2026-03-27 12:00 UTC` 🟡🟡 **distribution** conf=70 bias=stay_flat trend=transition zone=discount price=320.5300
+  - Gates: PASS  positions (0/2) → PASS  confidence 70 >= 70 → SKIP  risk_color=yellow (need green)
+
+**Summary** — 337 signals checked (110 below conf<60 skipped) | 227 above threshold | 3 trades entered | 3 closed
+Win rate: **66.7%** (2/3) | Net P&L: **$+458.57** | Final equity: **$10,651.82**
+
+#### Closed Trade Log
+
+| # | Side | Entry | Exit | Reason | P&L% | Net $ | Hold | Regime | Conf | Zone |
+|---|------|-------|------|--------|------|-------|------|--------|------|------|
+| 14 | long | 261.5707 | 268.4689 | tp2 | +2.64% | $+304.58 | 2.0h | accumulation | 95 | fvg |
+| 15 | long | 271.1355 | 287.7727 | tp2 | +6.14% | $+325.76 | 3.0h | accumulation | 100 | fvg |
+| 16 | short | 278.5407 | 282.9627 | stop_loss | -1.59% | $-171.77 | 3.0h | distribution | 90 | fvg |
+
+---
+

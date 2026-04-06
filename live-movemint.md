@@ -13,7 +13,7 @@ Your Browser
   ├── loads page  →  Netlify CDN  (hobbithobby.quest)
   └── API calls   →  VPS nginx    (api.hobbithobby.quest)
                           │
-                     FastAPI :8000
+                     FastAPI :8001
                           │
                      SQLite DB + Binance + Telegram
 ```
@@ -436,8 +436,8 @@ certbot renew --dry-run   # should say "Congratulations, all renewals succeeded"
 | Problem | Check |
 |---------|-------|
 | Dashboard shows "⚠ Offline" | `curl https://api.hobbithobby.quest/api/status` — is the API reachable? |
-| CORS error in browser console | Is `FRONTEND_URL=https://hobbithobby.quest` set in VPS `.env`? Did you restart the service? |
+| CORS error in browser console | CORS is hardcoded in `main.py` — verify `hobbithobby.quest` is in the `allow_origins` list. Re-deploy if you changed it. |
 | Netlify build fails | Check build logs on Netlify → is `npm run build` passing locally? |
 | `certbot` fails with "could not connect to server" | DNS hasn't propagated yet — wait and retry |
-| API returns 502 Bad Gateway | FastAPI isn't running: `systemctl status signal-engine` |
+| API returns 502 Bad Gateway | FastAPI isn't running: `tmux ls` to check; `tmux attach -t signal-api` to view logs |
 | `api.hobbithobby.quest` not resolving | Check Namecheap A record for `api` host → correct VPS IP? |

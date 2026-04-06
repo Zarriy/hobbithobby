@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+import { Moon, Sun } from 'lucide-react'
 import { useStatusDetail } from '@/hooks/useApi'
 import { stalenessClass, tsToTime } from '@/lib/utils'
 import { cn } from '@/lib/utils'
@@ -8,6 +10,30 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+
+function useTheme() {
+  const [dark, setDark] = useState(() => {
+    const saved = localStorage.getItem('theme')
+    if (saved === 'dark') return true
+    if (saved === 'light') return false
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
+
+  useEffect(() => {
+    const root = document.documentElement
+    if (dark) {
+      root.classList.add('dark')
+      root.classList.remove('light')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      root.classList.add('light')
+      root.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  }, [dark])
+
+  return { dark, toggle: () => setDark(v => !v) }
+}
 
 const PAIRS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'TAOUSDT']
 
@@ -26,6 +52,7 @@ function StaleDot({ flag, label }: { flag: string; label: string }) {
 
 export function Header() {
   const { data, isError } = useStatusDetail()
+  const { dark, toggle } = useTheme()
 
   const anyStale = data && Object.values(data.pairs).some(p =>
     Object.values(p.stale_flags).some(f => f === 'critical')
@@ -100,10 +127,19 @@ export function Header() {
             })}
           </div>
 
-          {/* Clock */}
-          <span className="text-xs text-muted-foreground tabular-nums shrink-0 ml-auto">
-            {data ? tsToTime(data.timestamp) : '--:--'}
-          </span>
+          {/* Theme toggle + Clock */}
+          <div className="flex items-center gap-2 shrink-0 ml-auto">
+            <button
+              onClick={toggle}
+              className="w-7 h-7 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {dark ? <Sun size={14} /> : <Moon size={14} />}
+            </button>
+            <span className="text-xs text-muted-foreground tabular-nums">
+              {data ? tsToTime(data.timestamp) : '--:--'}
+            </span>
+          </div>
         </header>
       </div>
     </TooltipProvider>

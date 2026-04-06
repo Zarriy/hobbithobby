@@ -41,35 +41,57 @@ async def _download_range(
     total = 0
     cursor = start_ms
 
-    # Fetch OI history once per range for enrichment
-    # Prefer CoinGlass (years of history) over Binance (~20 days only)
+    # Fetch OI history once per range for enrichment.
+    # CoinGlass HOBBYIST plan supports 4h, 6h, 8h, 12h, 1d, 1w — NOT 1h.
+    # For 1h candles we always use Binance OI (~20 days history).
+    _CG_SUPPORTED_INTERVALS = {"4h", "6h", "8h", "12h", "1d", "1w"}
+    use_coinglass = config.COINGLASS_API_KEY and timeframe in _CG_SUPPORTED_INTERVALS
+    HR_MS = 3_600_000
+
     oi_map: dict[int, float] = {}
-    if config.COINGLASS_API_KEY:
-        logger.info("Fetching OI from CoinGlass for %s %s", pair, timeframe)
+    oi_bucket_ms = tf_ms if use_coinglass else HR_MS  # bucket size matches OI source
+
+    if use_coinglass:
+        logger.info("Fetching OI from CoinGlass (%s interval) for %s", timeframe, pair)
         cg_cursor = start_ms
         while cg_cursor < end_ms:
             oi_hist = await fetcher.fetch_coinglass_oi_history(
-                pair, interval="1h", start_time=cg_cursor, end_time=end_ms, limit=4380
+                pair, interval=timeframe, start_time=cg_cursor, end_time=end_ms, limit=4380
             )
             if not oi_hist:
+                logger.warning(
+                    "CoinGlass returned empty OI for %s %s at cursor %d — stopping OI fetch",
+                    pair, timeframe, cg_cursor,
+                )
                 break
             for o in oi_hist:
-                bucket = (o["timestamp"] // 3_600_000) * 3_600_000
+                bucket = (o["timestamp"] // tf_ms) * tf_ms
                 oi_map[bucket] = o["open_interest"]
             last_ts = oi_hist[-1]["timestamp"]
             if last_ts <= cg_cursor:
                 break
-            cg_cursor = last_ts + 3_600_000
+            cg_cursor = last_ts + tf_ms
             await asyncio.sleep(0.15)
-        logger.info("CoinGlass OI: %d hourly buckets for %s", len(oi_map), pair)
-    else:
-        oi_hist = await fetcher.fetch_open_interest_hist(
+        logger.info("CoinGlass OI: %d %s buckets for %s", len(oi_map), timeframe, pair)
+    elif config.COINGLASS_API_KEY:
+        logger.info(
+            "Timeframe %s not supported by CoinGlass HOBBYIST plan for %s — using Binance OI",
+            timeframe, pair,
+        )
+
+    # Fall back to Binance OI if CoinGlass is unavailable or returned nothing.
+    # Binance retains ~20 days of 1h OI — partial coverage is better than none.
+    if not oi_map:
+        logger.info("Fetching OI from Binance for %s %s (~20 days)", pair, timeframe)
+        oi_hist_binance = await fetcher.fetch_open_interest_hist(
             pair, period="1h", limit=500, start_time=start_ms, end_time=end_ms
         )
-        if oi_hist:
-            for o in oi_hist:
-                bucket = (o["timestamp"] // 3_600_000) * 3_600_000
+        if oi_hist_binance:
+            for o in oi_hist_binance:
+                bucket = (o["timestamp"] // HR_MS) * HR_MS
                 oi_map[bucket] = o["open_interest"]
+            oi_bucket_ms = HR_MS  # Binance OI is always 1h bucketed
+        logger.info("Binance OI: %d hourly buckets for %s", len(oi_map), pair)
 
     funding_hist = await fetcher.fetch_funding_rate(
         pair, limit=500, start_time=start_ms, end_time=end_ms
@@ -92,8 +114,9 @@ async def _download_range(
 
         # Enrich with OI + funding where available
         for c in candles:
-            hour_bucket = (c["timestamp"] // 3_600_000) * 3_600_000
-            c["open_interest"] = oi_map.get(hour_bucket)
+            hour_bucket = (c["timestamp"] // HR_MS) * HR_MS
+            oi_bucket = (c["timestamp"] // oi_bucket_ms) * oi_bucket_ms
+            c["open_interest"] = oi_map.get(oi_bucket)
             c["funding_rate"] = funding_map.get(hour_bucket)
 
         written = store.upsert_candles(candles)

@@ -315,10 +315,11 @@ async def fetch_coinglass_oi_history(
     await _rate_check()
     client = await _get_cg_client()
 
-    # CoinGlass symbol format: BTCUSDT → BTC
-    symbol = pair.replace("USDT", "").replace("BUSD", "")
+    # CoinGlass symbol format: 1h uses short form (BTC), 4h+ requires full pair (BTCUSDT)
+    _CG_SHORT_INTERVALS = {"1h", "2h", "3h"}
+    symbol = pair.replace("USDT", "").replace("BUSD", "") if interval in _CG_SHORT_INTERVALS else pair
     params: dict = {
-        "ex": "Binance",
+        "exchange": "Binance",
         "symbol": symbol,
         "interval": interval,
         "limit": limit,
@@ -328,20 +329,26 @@ async def fetch_coinglass_oi_history(
     if end_time:
         params["endTime"] = end_time // 1000
 
-    resp = await client.get("/public/futures/openInterest/ohlc-history", params=params)
+    resp = await client.get("/api/futures/open-interest/history", params=params)
     resp.raise_for_status()
     data = resp.json()
 
-    if data.get("code") != "0" or not data.get("data"):
-        logger.warning("CoinGlass OI: unexpected response: %s", data.get("msg", "unknown"))
+    # V4 response: {"code":"0","data":[...]} or direct list
+    rows = data.get("data") if isinstance(data, dict) else data
+    if not rows:
+        logger.warning("CoinGlass OI: empty response: %s", data)
         return None
 
     results = []
-    for row in data["data"]:
-        ts_ms = int(row["t"]) * 1000 if int(row["t"]) < 1e12 else int(row["t"])
+    for row in rows:
+        # 1h response uses short keys {"t", "c"}; 4h+ response uses long keys {"time", "close"}
+        raw_ts = row.get("t") or row.get("time")
+        raw_oi = row.get("c") or row.get("close")
+        ts_raw = int(raw_ts)
+        ts_ms = ts_raw * 1000 if ts_raw < 1e12 else ts_raw
         results.append({
             "pair": pair,
-            "open_interest": float(row["c"]),  # use close OI of the candle
+            "open_interest": float(raw_oi),
             "timestamp": ts_ms,
         })
     return results

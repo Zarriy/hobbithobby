@@ -112,13 +112,22 @@ def _compute_signals_at(
     prev_close = float(closes[-2]) if len(closes) >= 2 else current_price
     price_change = (current_price - prev_close) / prev_close if prev_close > 0 else 0.0
 
-    oi_vals = [c.get("open_interest") for c in window if c.get("open_interest") is not None]
-    oi_change = 0.0
+    oi_change: Optional[float] = None
     lookback = config.OI_CHANGE_LOOKBACK
-    if len(oi_vals) > lookback and oi_vals[-1 - lookback] and oi_vals[-1 - lookback] > 0:
-        oi_change = (oi_vals[-1] - oi_vals[-1 - lookback]) / oi_vals[-1 - lookback]
-    elif len(oi_vals) >= 2 and oi_vals[-2] and oi_vals[-2] > 0:
-        oi_change = (oi_vals[-1] - oi_vals[-2]) / oi_vals[-2]
+    # Use position-aligned lookback so OI change reflects the correct time span.
+    # Filtering out Nones (old approach) shifts the index and measures the wrong period.
+    if len(window) > lookback:
+        oi_now = window[-1].get("open_interest")
+        oi_back = window[-1 - lookback].get("open_interest")
+        if oi_now is not None and oi_back is not None and oi_back > 0:
+            oi_change = (oi_now - oi_back) / oi_back
+        elif oi_now is not None:
+            # Aligned candle has no OI — walk backward to the nearest valid reading
+            for c in reversed(window[-lookback - 1 : -1]):
+                oi_prior = c.get("open_interest")
+                if oi_prior is not None and oi_prior > 0:
+                    oi_change = (oi_now - oi_prior) / oi_prior
+                    break
 
     funding_rate = window[-1].get("funding_rate") or 0.0
     taker_ratio = window[-1].get("taker_buy_sell_ratio") or 0.5
@@ -316,40 +325,51 @@ def run_backtest(
             )
 
             if entry:
-                # Position sizing
-                risk_usd = state.equity * rules.risk_percent_base * entry["size_multiplier"]
-                size_usd = risk_usd / (entry["risk_distance"] / entry["entry_price"]) if entry["risk_distance"] > 0 else 0
+                # Apply slippage first — worsens fill on both sides
+                slip_entry = entry["entry_price"] * slippage
+                if entry["side"] == "long":
+                    actual_entry = entry["entry_price"] + slip_entry
+                else:
+                    actual_entry = entry["entry_price"] - slip_entry
 
-                if size_usd > 0 and size_usd <= state.equity * 5:  # Max 5x leverage check
-                    # Apply entry slippage
-                    slip_entry = entry["entry_price"] * slippage
+                # Recalculate risk distance and TP1 from actual fill price.
+                # SL stays at the zone boundary (absolute level); TP shifts with entry.
+                sl_price = entry["stop_loss"]
+                actual_risk_distance = abs(actual_entry - sl_price)
+
+                if actual_risk_distance >= actual_entry * 0.0001:
                     if entry["side"] == "long":
-                        actual_entry = entry["entry_price"] + slip_entry
+                        actual_tp1 = actual_entry + actual_risk_distance * rules.take_profit_1_rr
                     else:
-                        actual_entry = entry["entry_price"] - slip_entry
+                        actual_tp1 = actual_entry - actual_risk_distance * rules.take_profit_1_rr
 
-                    entry_fee = size_usd * fees
+                    # Size from actual risk distance so 1% risk rule stays accurate
+                    risk_usd = state.equity * rules.risk_percent_base * entry["size_multiplier"]
+                    size_usd = risk_usd / (actual_risk_distance / actual_entry)
 
-                    pos = Position(
-                        id=state.next_trade_id,
-                        side=entry["side"],
-                        entry_price=actual_entry,
-                        stop_loss=entry["stop_loss"],
-                        tp1=entry["tp1"],
-                        tp2_target=entry.get("tp2_target"),
-                        size_multiplier=entry["size_multiplier"],
-                        risk_distance=entry["risk_distance"],
-                        reason=entry["reason"],
-                        entry_zone=entry.get("entry_zone"),
-                        entry_ts=ts,
-                        regime_at_entry=entry["regime_at_entry"],
-                        risk_color_at_entry=entry["risk_color_at_entry"],
-                        size_usd=size_usd,
-                        contracts=size_usd / actual_entry,
-                    )
-                    state.open_positions.append(pos)
-                    state.equity -= entry_fee  # Deduct entry fee immediately
-                    state.next_trade_id += 1
+                    if size_usd > 0 and size_usd <= state.equity * 5:  # Max 5x leverage check
+                        entry_fee = size_usd * fees
+
+                        pos = Position(
+                            id=state.next_trade_id,
+                            side=entry["side"],
+                            entry_price=actual_entry,
+                            stop_loss=sl_price,
+                            tp1=actual_tp1,
+                            tp2_target=entry.get("tp2_target"),
+                            size_multiplier=entry["size_multiplier"],
+                            risk_distance=actual_risk_distance,
+                            reason=entry["reason"],
+                            entry_zone=entry.get("entry_zone"),
+                            entry_ts=ts,
+                            regime_at_entry=entry["regime_at_entry"],
+                            risk_color_at_entry=entry["risk_color_at_entry"],
+                            size_usd=size_usd,
+                            contracts=size_usd / actual_entry,
+                        )
+                        state.open_positions.append(pos)
+                        state.equity -= entry_fee  # Deduct entry fee immediately
+                        state.next_trade_id += 1
 
         # ─── Record Equity & Drawdown ───
         state.equity_curve.append((ts, state.equity))

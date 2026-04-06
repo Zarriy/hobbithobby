@@ -97,7 +97,9 @@ def _migrate_demo_tables(conn) -> None:
     # demo_equity — needs table recreation for composite UNIQUE(timestamp, mode)
     cols = {r[1] for r in conn.execute("PRAGMA table_info(demo_equity)").fetchall()}
     if "mode" not in cols:
+        # Wrap in explicit transaction so a mid-migration crash doesn't lose data
         conn.executescript("""
+            BEGIN TRANSACTION;
             CREATE TABLE demo_equity_new (
                 id         INTEGER PRIMARY KEY AUTOINCREMENT,
                 timestamp  INTEGER NOT NULL,
@@ -111,6 +113,7 @@ def _migrate_demo_tables(conn) -> None:
             SELECT timestamp, 'aggressive', equity, open_pnl, open_count FROM demo_equity;
             DROP TABLE demo_equity;
             ALTER TABLE demo_equity_new RENAME TO demo_equity;
+            COMMIT;
         """)
         logger.info("Migrated demo_equity: added mode column with composite UNIQUE")
 

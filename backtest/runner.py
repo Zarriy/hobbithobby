@@ -69,8 +69,11 @@ def run_full_backtest(args) -> None:
     logger.info("=== BACKTEST: %s %s | %d months | conf>=%d ===", pair, timeframe, months, confidence)
 
     # Load data
+    # --regen-cache always implies a fresh download so signal recomputation uses
+    # the latest OI-enriched candles, not a stale OI-less CSV.
+    force_dl = args.force_download or args.regen_cache
     logger.info("Loading historical data...")
-    candles = load_historical_data(pair, timeframe, months=months, force_download=args.force_download)
+    candles = load_historical_data(pair, timeframe, months=months, force_download=force_dl)
     if not candles:
         logger.error("No data loaded. Exiting.")
         sys.exit(1)

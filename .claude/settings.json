@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+      "coinglass-api": {
+        "url": "https://docs.coinglass.com/mcp",
+        "headers": {
+          "CG-API-KEY": "a187679aaa4945efaffd814a764d9b6f"
+        }
+      }
+    }
+  }

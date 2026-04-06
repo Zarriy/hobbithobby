@@ -57,7 +57,7 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 # ─── API ───
 BINANCE_FUTURES_BASE = "https://fapi.binance.com"
 COINGLASS_API_KEY = os.getenv("COINGLASS_API_KEY", "")
-COINGLASS_BASE = "https://open-api.coinglass.com"
+COINGLASS_BASE = "https://open-api-v4.coinglass.com"
 
 # ─── Retry Settings ───
 MAX_RETRIES = 3

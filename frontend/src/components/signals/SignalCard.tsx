@@ -32,6 +32,9 @@ export function SignalCard({ pair, signal1h, signal4h }: Props) {
   const action = ACTION_META[signal.metadata?.action_bias ?? 'stay_flat']
   const macroRegime = signal.metadata?.macro_regime
 
+  const ageS = Math.floor((Date.now() - signal.timestamp) / 1000)
+  const ageLabel = ageS < 60 ? `${ageS}s ago` : `${Math.floor(ageS / 60)}m ago`
+
   return (
     <Card>
       {/* Card header: pair + timeframe tabs + action bias */}
@@ -59,6 +62,9 @@ export function SignalCard({ pair, signal1h, signal4h }: Props) {
               4H: {macroRegime}
             </span>
           )}
+          <span className="text-xs text-muted-foreground tabular-nums">
+            {ageLabel}
+          </span>
         </div>
 
         {/* Action bias badge */}
