@@ -167,9 +167,12 @@ async def get_status_detail():
         age_s = now_s - last_update_s if last_update_s else None
 
         # Check candle freshness from DB
+        # 1h candles are naturally 0–3599s old between closes, so offset by
+        # the timeframe duration to avoid false-positive staleness alerts.
         candles = store.fetch_candles(pair, "1h", limit=5)
         last_candle_ts = candles[-1]["timestamp"] / 1000 if candles else 0
-        candle_age_s = now_s - last_candle_ts if last_candle_ts else None
+        candle_age_raw = now_s - last_candle_ts if last_candle_ts else None
+        candle_age_s = max(0, candle_age_raw - 3600) if candle_age_raw is not None else None
 
         # OI coverage check (last 10 candles)
         oi_candles = store.fetch_candles(pair, "1h", limit=10)
@@ -195,7 +198,7 @@ async def get_status_detail():
 
         pairs_detail[pair] = {
             "last_signal_age_s": round(age_s, 0) if age_s else None,
-            "last_candle_age_s": round(candle_age_s, 0) if candle_age_s else None,
+            "last_candle_age_s": round(candle_age_raw, 0) if candle_age_raw is not None else None,
             "oi_ever_nonzero": oi_ever_nonzero,
             "funding_age_s": round(funding_age_s, 0) if funding_age_s else None,
             "stale_flags": {
