@@ -62,13 +62,49 @@ export function Header() {
     <TooltipProvider delayDuration={300}>
       <div className="fixed top-0 left-0 right-0 z-30">
         {/* Critical staleness banner */}
-        {anyStale && (
-          <div className="bg-rose-50 border-b border-rose-200 px-4 py-1.5 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse inline-block" />
-            <span className="text-xs text-rose-700 font-medium">
-              Data quality issue — stale data detected
-            </span>
-          </div>
+        {anyStale && data && (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="bg-rose-50 border-b border-rose-200 px-4 py-1.5 flex items-center gap-2 cursor-default">
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse inline-block" />
+                <span className="text-xs text-rose-700 font-medium">
+                  Data quality issue — stale data detected
+                </span>
+                <span className="text-xs text-rose-400 ml-1">(hover for details)</span>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" align="start" className="max-w-sm p-3">
+              <p className="text-xs font-semibold mb-2">Critical staleness detected:</p>
+              <ul className="space-y-1.5">
+                {Object.entries(data.pairs).flatMap(([pair, info]) => {
+                  const flags = info.stale_flags
+                  const issues: { source: string; detail: string }[] = []
+
+                  if (flags.signals === 'critical')
+                    issues.push({ source: 'Signals', detail: info.last_signal_age_s != null ? `last update ${Math.round(info.last_signal_age_s / 60)}m ago` : 'no data' })
+                  if (flags.candles === 'critical')
+                    issues.push({ source: 'Candles', detail: info.last_candle_age_s != null ? `last candle ${Math.round(info.last_candle_age_s / 60)}m ago` : 'no data' })
+                  if (flags.oi_data === 'critical')
+                    issues.push({ source: 'Open Interest', detail: 'no OI data in recent candles — check COINGLASS_API_KEY' })
+                  if (flags.funding === 'critical')
+                    issues.push({ source: 'Funding', detail: info.funding_age_s != null ? `last funding ${Math.round(info.funding_age_s / 3600)}h ago` : 'no data' })
+
+                  return issues.map(issue => (
+                    <li key={`${pair}-${issue.source}`} className="text-xs flex gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1 shrink-0" />
+                      <span>
+                        <span className="font-medium">{pair.replace('USDT', '')}</span>
+                        {' · '}
+                        <span className="font-medium">{issue.source}</span>
+                        {' — '}
+                        <span className="text-muted-foreground">{issue.detail}</span>
+                      </span>
+                    </li>
+                  ))
+                })}
+              </ul>
+            </TooltipContent>
+          </Tooltip>
         )}
 
         {/* Main header bar */}

@@ -55,7 +55,7 @@ export function PerformanceStats({ metrics }: { metrics: MetricsInput }) {
       <StatCard
         label="Profit Factor"
         value={
-          (metrics.profit_factor === Infinity || (metrics.profit_factor ?? 0) > 99)
+          (metrics.profit_factor == null || metrics.profit_factor === Infinity || (metrics.profit_factor ?? 0) > 99)
             ? '∞'
             : (metrics.profit_factor ?? 0).toFixed(2)
         }

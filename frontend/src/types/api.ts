@@ -224,11 +224,11 @@ export interface DemoMetrics {
   total_return_percent: number
   total_trades: number
   win_rate: number
-  profit_factor: number
+  profit_factor: number | null
   max_drawdown_percent: number
   sharpe_ratio: number
   sortino_ratio: number
-  expectancy_per_trade: number
+  expectancy_per_trade: number | null
   avg_trade_duration_hours: number
   final_equity: number
   gross_profit: number

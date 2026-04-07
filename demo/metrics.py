@@ -4,6 +4,7 @@ then delegates to backtest/metrics.py — no logic duplication.
 """
 
 import dataclasses
+import math
 from typing import Optional
 
 from backtest.metrics import calculate_metrics
@@ -70,4 +71,11 @@ def compute_demo_metrics(current_equity: float, mode: str = "aggressive") -> Opt
     # Override final_equity with current live equity (includes open positions)
     d["current_equity"] = current_equity
     d["initial_capital"] = config.INITIAL_CAPITAL
+
+    # Sanitize non-JSON-serializable floats (inf/nan → None)
+    # Python's json.dumps raises ValueError on float('inf')
+    for key, val in d.items():
+        if isinstance(val, float) and (math.isinf(val) or math.isnan(val)):
+            d[key] = None
+
     return d
