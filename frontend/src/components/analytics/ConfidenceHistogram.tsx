@@ -1,4 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts'
+import { formatPrice } from '@/lib/utils'
 import type { ConfidenceDistribution, TradeableSignal } from '@/types/api'
 
 function bucketColor(bucketStart: number): string {
@@ -47,6 +48,9 @@ function SignalRow({ signal }: { signal: TradeableSignal }) {
       <span className={`w-2 h-2 rounded-full shrink-0 ${RISK_DOT[signal.risk_color] ?? 'bg-slate-500'}`} />
       <span className="text-muted-foreground w-16 shrink-0">{formatTime(signal.timestamp)}</span>
       <span className="font-mono font-medium w-6 text-right">{signal.confidence}</span>
+      <span className="font-mono text-foreground w-20 text-right shrink-0">
+        {signal.price != null ? formatPrice(signal.price) : '—'}
+      </span>
       <span className="text-muted-foreground truncate w-24">{signal.regime_state.replace('_', ' ')}</span>
       <span className={`font-medium w-12 text-right ${BIAS_COLOR[signal.action_bias] ?? 'text-slate-400'}`}>
         {BIAS_LABEL[signal.action_bias] ?? signal.action_bias}
@@ -126,6 +130,7 @@ export function ConfidenceHistogram({ data }: Props) {
               <span className="w-2 shrink-0" />
               <span className="w-16 shrink-0">When</span>
               <span className="w-6 text-right">Conf</span>
+              <span className="w-20 text-right shrink-0">Price</span>
               <span className="w-24">Regime</span>
               <span className="w-12 text-right">Bias</span>
               <span className="ml-auto">Trend</span>

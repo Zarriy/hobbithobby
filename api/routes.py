@@ -409,6 +409,11 @@ async def get_confidence_distribution(
                     metadata = json.loads(r["metadata"])
                 except json.JSONDecodeError:
                     pass
+            # Price from metadata (new signals) or nearest candle (old signals)
+            price = metadata.get("price")
+            if price is None:
+                candle = store.fetch_candle_at(pair, timeframe, r["timestamp"])
+                price = candle["close"] if candle else None
             tradeable_signals.append({
                 "timestamp": r["timestamp"],
                 "confidence": conf,
@@ -416,6 +421,7 @@ async def get_confidence_distribution(
                 "risk_color": r.get("risk_color", "yellow"),
                 "trend_state": r.get("trend_state", "unknown"),
                 "action_bias": metadata.get("action_bias", "stay_flat"),
+                "price": price,
             })
     # Most recent first
     tradeable_signals.sort(key=lambda x: x["timestamp"], reverse=True)

@@ -274,6 +274,7 @@ export interface TradeableSignal {
   risk_color: RiskColor
   trend_state: TrendState | string
   action_bias: ActionBias | string
+  price: number | null
 }
 
 export interface ConfidenceDistribution {

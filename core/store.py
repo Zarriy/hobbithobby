@@ -227,6 +227,17 @@ def fetch_candles(
     return result
 
 
+def fetch_candle_at(pair: str, timeframe: str, timestamp_ms: int) -> Optional[dict]:
+    """Get the candle closest to (at or before) the given timestamp."""
+    with get_connection() as conn:
+        row = conn.execute(
+            """SELECT * FROM candles WHERE pair=? AND timeframe=? AND timestamp<=?
+               ORDER BY timestamp DESC LIMIT 1""",
+            (pair, timeframe, timestamp_ms),
+        ).fetchone()
+    return dict(row) if row else None
+
+
 def upsert_fvg(fvg: dict) -> None:
     with get_connection() as conn:
         conn.execute(

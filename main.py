@@ -410,6 +410,7 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
             "macro_regime": live_state.get(pair, {}).get("macro_regime"),
             "action_bias": signal.action_bias,
             "reasoning": reasoning,
+            "price": current_price,
         }),
     }
     store.upsert_signal(signal_row)
