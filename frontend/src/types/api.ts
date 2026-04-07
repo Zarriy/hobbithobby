@@ -267,6 +267,15 @@ export interface ConfidenceBucket {
   count: number
 }
 
+export interface TradeableSignal {
+  timestamp: number
+  confidence: number
+  regime_state: RegimeState
+  risk_color: RiskColor
+  trend_state: TrendState | string
+  action_bias: ActionBias | string
+}
+
 export interface ConfidenceDistribution {
   pair: string
   timeframe: string
@@ -275,6 +284,7 @@ export interface ConfidenceDistribution {
   mean: number
   median: number
   std_dev: number
+  tradeable_signals: TradeableSignal[]
 }
 
 export interface DataQualityEntry {

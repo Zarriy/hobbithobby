@@ -55,7 +55,7 @@ function PairSignalContent({ pair }: { pair: string }) {
 // ── Analytics section for selected pair ──────────────────────────────────────
 
 function AnalyticsSection({ activePair }: { activePair: string }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   const [activeTf, setActiveTf] = useState<'1h' | '4h'>('1h')
 
   const { data: regimeDist } = useRegimeDistribution(activePair, activeTf)

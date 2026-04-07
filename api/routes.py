@@ -376,7 +376,7 @@ async def get_confidence_distribution(
 
     scores = [r["confidence"] for r in rows if r.get("confidence") is not None]
     if not scores:
-        return {"pair": pair, "timeframe": timeframe, "buckets": [], "mean": 0, "median": 0, "std_dev": 0}
+        return {"pair": pair, "timeframe": timeframe, "buckets": [], "mean": 0, "median": 0, "std_dev": 0, "tradeable_signals": []}
 
     # 10-point bins
     bins = {f"{i*10}-{i*10+9}": 0 for i in range(10)}
@@ -395,6 +395,28 @@ async def get_confidence_distribution(
     variance = sum((s - mean) ** 2 for s in scores) / n
     std_dev = math.sqrt(variance)
 
+    # Signals at or above confidence 70 (tradeable threshold)
+    tradeable_signals = []
+    for r in rows:
+        conf = r.get("confidence")
+        if conf is not None and conf >= 70:
+            metadata = {}
+            if r.get("metadata") and isinstance(r["metadata"], str):
+                try:
+                    metadata = json.loads(r["metadata"])
+                except json.JSONDecodeError:
+                    pass
+            tradeable_signals.append({
+                "timestamp": r["timestamp"],
+                "confidence": conf,
+                "regime_state": r.get("regime_state", "unknown"),
+                "risk_color": r.get("risk_color", "yellow"),
+                "trend_state": r.get("trend_state", "unknown"),
+                "action_bias": metadata.get("action_bias", "stay_flat"),
+            })
+    # Most recent first
+    tradeable_signals.sort(key=lambda x: x["timestamp"], reverse=True)
+
     return {
         "pair": pair,
         "timeframe": timeframe,
@@ -403,6 +425,7 @@ async def get_confidence_distribution(
         "mean": round(mean, 1),
         "median": round(median, 1),
         "std_dev": round(std_dev, 1),
+        "tradeable_signals": tradeable_signals,
     }
 
 
