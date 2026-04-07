@@ -83,7 +83,9 @@ async def lifespan(app: FastAPI):
     await regime_task()
 
     # 5. Start scheduler
-    scheduler = AsyncIOScheduler()
+    # misfire_grace_time=None means never skip a trigger just because the event loop was busy.
+    # coalesce=True means if multiple runs were missed, run just once (not N times).
+    scheduler = AsyncIOScheduler(job_defaults={"misfire_grace_time": None, "coalesce": True})
     scheduler.add_job(fast_pulse, "interval", seconds=config.FAST_PULSE_INTERVAL_SECONDS, id="fast_pulse")
     scheduler.add_job(full_analysis, "interval", seconds=config.FULL_ANALYSIS_INTERVAL_SECONDS, id="full_analysis")
     scheduler.add_job(hourly_task, "interval", seconds=config.HOURLY_TASK_INTERVAL_SECONDS, id="hourly")
@@ -136,6 +138,9 @@ demo_trader_conservative: Optional[DemoTrader] = None
 # ─── Previous price for fast pulse comparison ───
 _prev_prices: dict[str, float] = {}
 
+# ─── Track in-flight backfills to prevent duplicates competing for rate budget ───
+_backfill_running: dict[str, bool] = {}
+
 
 # ════════════════════════════════════════
 # FAST PULSE — runs every 60 seconds
@@ -180,6 +185,8 @@ async def fast_pulse() -> None:
 
 async def full_analysis() -> None:
     """Complete signal generation pipeline for all pairs — runs concurrently."""
+    cycle_start = time.monotonic()
+
     async def _safe(pair: str, tf: str) -> None:
         try:
             await _run_full_analysis(pair, tf)
@@ -198,6 +205,14 @@ async def full_analysis() -> None:
         if _trader is not None:
             _trader.record_equity_snapshot(ts_ms)
 
+    elapsed = time.monotonic() - cycle_start
+    logger.info("Full analysis cycle completed in %.1fs", elapsed)
+    if elapsed > config.FULL_ANALYSIS_INTERVAL_SECONDS * 0.8:
+        logger.warning(
+            "Analysis cycle (%.1fs) approaching interval (%ds) — risk of skipped runs",
+            elapsed, config.FULL_ANALYSIS_INTERVAL_SECONDS,
+        )
+
 
 async def _run_full_analysis(pair: str, timeframe: str) -> None:
     now_ms = int(time.time() * 1000)
@@ -211,13 +226,19 @@ async def _run_full_analysis(pair: str, timeframe: str) -> None:
     # Write to DB
     store.upsert_candles([snapshot])
 
-    # Check for and fill any gaps
+    # Check for and fill any gaps (fire-and-forget, but limit to 1 concurrent backfill)
     gaps = store.detect_and_log_gaps(pair, timeframe)
-    if gaps:
+    if gaps and not _backfill_running.get(f"{pair}_{timeframe}"):
         logger.info("Gaps detected for %s %s — triggering backfill", pair, timeframe)
-        asyncio.create_task(
-            backfill.backfill_pair(pair, timeframe, config.LIVE_BACKFILL_DAYS)
-        )
+        _backfill_running[f"{pair}_{timeframe}"] = True
+
+        async def _guarded_backfill(p: str, tf: str) -> None:
+            try:
+                await backfill.backfill_pair(p, tf, config.LIVE_BACKFILL_DAYS)
+            finally:
+                _backfill_running.pop(f"{p}_{tf}", None)
+
+        asyncio.create_task(_guarded_backfill(pair, timeframe))
 
     # Load rolling window of candles for calculations
     candles = store.fetch_candles(pair, timeframe, limit=200)

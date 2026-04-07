@@ -61,6 +61,7 @@ def check_entry(
     current_ts: int = 0,
     candle_low: Optional[float] = None,
     candle_high: Optional[float] = None,
+    live_mode: bool = False,
 ) -> Optional[dict]:
     """
     Returns a trade entry dict if ALL conditions are met, None otherwise.
@@ -156,6 +157,11 @@ def check_entry(
                 return None
         else:
             return None
+
+    # In live mode, enter at market price (current_price) instead of zone boundary.
+    # Zone touch via wick is signal confirmation, but execution is at market.
+    if live_mode:
+        entry_price = current_price
 
     # Risk distance
     risk_distance = abs(entry_price - sl_price)

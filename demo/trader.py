@@ -145,6 +145,7 @@ class DemoTrader:
                 current_ts=timestamp_ms,
                 candle_low=current_candle.get("low"),
                 candle_high=current_candle.get("high"),
+                live_mode=True,
             )
 
             if entry:
@@ -220,6 +221,9 @@ class DemoTrader:
         pos["id"] = row_id
         self._open_positions.append(pos)
 
+        # Persist equity immediately (entry fee was deducted)
+        self._persist_equity_now(timestamp_ms)
+
         logger.info(
             "DEMO ENTRY: %s %s %s @ %.4f | lev=%dx | SL=%.4f | conf=%d",
             pair, timeframe, entry["side"].upper(), actual_entry,
@@ -276,9 +280,12 @@ class DemoTrader:
             "tp2_target": pos["tp2_target"],
         })
 
+        # Persist equity immediately so it survives restarts
+        self._persist_equity_now(timestamp_ms)
+
         logger.info(
-            "DEMO TP1: %s %s — partial close @ %.4f | net P&L=$%.2f",
-            pos["pair"], pos["side"].upper(), exit_result["exit_price"], net,
+            "DEMO TP1: %s %s — partial close @ %.4f | net P&L=$%.2f | equity=$%.2f",
+            pos["pair"], pos["side"].upper(), exit_result["exit_price"], net, self._equity,
         )
 
     def _close_position(self, pos: dict, exit_result: dict, timestamp_ms: int) -> None:
@@ -293,10 +300,14 @@ class DemoTrader:
         funding_cost = abs(pos["size_usd"]) * 0.0001 * funding_periods
 
         exit_fee = pos["size_usd"] * self._fees
-        net_pnl = gross_pnl - exit_fee - funding_cost + pos.get("partial_exit_pnl", 0.0)
+        # Only add P&L for THIS close — partial_exit_pnl was already applied
+        # to equity when TP1 fired in _handle_tp1_partial
+        net_pnl = gross_pnl - exit_fee - funding_cost
 
         self._equity += net_pnl
 
+        # Trade record captures TOTAL P&L (partial + final) for metrics
+        total_net_pnl = net_pnl + pos.get("partial_exit_pnl", 0.0)
         pnl_leveraged_pct = pnl_pct_raw * self._leverage
 
         trade = {
@@ -312,7 +323,7 @@ class DemoTrader:
             "pnl_usd": gross_pnl,
             "pnl_percent": pnl_pct_raw,
             "fee_usd": exit_fee + funding_cost,
-            "net_pnl_usd": net_pnl,
+            "net_pnl_usd": total_net_pnl,
             "size_usd": pos["size_usd"],
             "leverage": pos.get("leverage", self._leverage),
             "margin_usd": pos.get("margin_usd", pos["size_usd"] / self._leverage),
@@ -326,6 +337,9 @@ class DemoTrader:
         demo_store.insert_trade(trade)
         demo_store.close_position(pos["id"], timestamp_ms)
         self._open_positions = [p for p in self._open_positions if p["id"] != pos["id"]]
+
+        # Persist equity immediately so it survives restarts
+        self._persist_equity_now(timestamp_ms)
 
         logger.info(
             "DEMO EXIT: %s %s @ %.4f | reason=%s | net=$%.2f | equity=$%.2f",
@@ -348,6 +362,21 @@ class DemoTrader:
                 equity=self._equity,
             )
         ))
+
+    def _persist_equity_now(self, timestamp_ms: int) -> None:
+        """Write equity to DB immediately after a trade event so it survives restarts."""
+        open_pnl = 0.0
+        for pos in self._open_positions:
+            last_price = _live_state.get(pos["pair"], {}).get("last_price", pos["entry_price"])
+            open_pnl += self.mark_to_market(pos, last_price)
+
+        demo_store.upsert_equity_snapshot(
+            ts=timestamp_ms,
+            equity=self._equity,
+            open_pnl=open_pnl,
+            open_count=len(self._open_positions),
+            mode=self._mode,
+        )
 
     def record_equity_snapshot(self, timestamp_ms: int) -> None:
         """Called once per full_analysis cycle (not per pair). Records equity + open P&L."""
